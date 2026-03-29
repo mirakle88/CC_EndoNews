@@ -1,10 +1,11 @@
 #!/usr/bin/env python3
 """
 EndoNews Weekly - Veille hebdomadaire en endocrinologie
-Récupère les derniers articles des principales revues d'endocrinologie
-via leurs flux RSS/Atom publics et génère une page HTML statique.
+Récupère les derniers articles via l'API PubMed (E-utilities) du NCBI
+et génère une page HTML statique.
 
-Aucune dépendance externe requise — uniquement la bibliothèque standard Python.
+Aucune dépendance externe — uniquement la bibliothèque standard Python.
+API PubMed E-utilities : gratuite, fiable, couvre toutes les revues.
 """
 
 import json
@@ -14,310 +15,338 @@ import xml.etree.ElementTree as ET
 from datetime import datetime, timedelta
 from html import escape
 from urllib.request import Request, urlopen
+from urllib.parse import urlencode, quote
 from urllib.error import URLError, HTTPError
-from email.utils import parsedate_to_datetime
+import time
 
-# ─── Configuration des revues ────────────────────────────────────────
-FEEDS = [
+# ─── Configuration ────────────────────────────────────────────────────
+
+JOURNALS = [
     {
         "name": "The Journal of Clinical Endocrinology & Metabolism",
         "short": "JCEM",
-        "url": "https://academic.oup.com/rss/site_5/3.xml",
-        "color": "#1a5276"
+        "query": '"J Clin Endocrinol Metab"[jour]',
+        "color": "#1a5276",
     },
     {
         "name": "Endocrine Reviews",
         "short": "Endocr Rev",
-        "url": "https://academic.oup.com/rss/site_5/4.xml",
-        "color": "#6c3483"
+        "query": '"Endocr Rev"[jour]',
+        "color": "#6c3483",
     },
     {
         "name": "Thyroid",
         "short": "Thyroid",
-        "url": "https://www.liebertpub.com/action/showFeed?type=etoc&feed=rss&jc=thy",
-        "color": "#117864"
+        "query": '"Thyroid"[jour]',
+        "color": "#117864",
     },
     {
         "name": "Diabetes Care",
         "short": "Diabetes Care",
-        "url": "https://diabetesjournals.org/care/issue.rss",
-        "color": "#c0392b"
+        "query": '"Diabetes Care"[jour]',
+        "color": "#c0392b",
     },
     {
         "name": "Diabetes",
         "short": "Diabetes",
-        "url": "https://diabetesjournals.org/diabetes/issue.rss",
-        "color": "#e74c3c"
+        "query": '"Diabetes"[jour] NOT "Diabetes Care"[jour] NOT "Diabetes Obes Metab"[jour]',
+        "color": "#e74c3c",
     },
     {
         "name": "European Journal of Endocrinology",
         "short": "EJE",
-        "url": "https://academic.oup.com/rss/site_5/3722.xml",
-        "color": "#2874a6"
+        "query": '"Eur J Endocrinol"[jour]',
+        "color": "#2874a6",
     },
     {
         "name": "Endocrinology",
         "short": "Endocrinology",
-        "url": "https://academic.oup.com/rss/site_5/6.xml",
-        "color": "#1e8449"
+        "query": '"Endocrinology"[jour] NOT "Mol Cell Endocrinol"[jour]',
+        "color": "#1e8449",
     },
     {
         "name": "The Lancet Diabetes & Endocrinology",
         "short": "Lancet D&E",
-        "url": "https://www.thelancet.com/rssfeed/landia_current.xml",
-        "color": "#d35400"
+        "query": '"Lancet Diabetes Endocrinol"[jour]',
+        "color": "#d35400",
     },
     {
         "name": "Frontiers in Endocrinology",
         "short": "Front Endocrinol",
-        "url": "https://www.frontiersin.org/journals/endocrinology/rss",
-        "color": "#2e86c1"
+        "query": '"Front Endocrinol (Lausanne)"[jour]',
+        "color": "#2e86c1",
     },
     {
-        "name": "BMC Endocrine Disorders",
-        "short": "BMC Endocr Disord",
-        "url": "https://bmcendocrdisord.biomedcentral.com/articles/most-recent/rss.xml",
-        "color": "#16a085"
+        "name": "Nature Reviews Endocrinology",
+        "short": "Nat Rev Endocrinol",
+        "query": '"Nat Rev Endocrinol"[jour]',
+        "color": "#8e44ad",
     },
 ]
 
-MAX_ARTICLES_PER_FEED = 10
-DAYS_LOOKBACK = 7
-USER_AGENT = "EndoNewsWeekly/1.0 (Academic RSS Reader)"
-TIMEOUT = 20  # seconds
+MAX_ARTICLES_PER_JOURNAL = 10
+DAYS_LOOKBACK = 14  # 2 semaines pour couvrir les revues mensuelles
+
+EUTILS_BASE = "https://eutils.ncbi.nlm.nih.gov/entrez/eutils"
+USER_AGENT = "EndoNewsWeekly/1.0 (Academic Literature Monitor; mailto:endonews@example.com)"
+REQUEST_DELAY = 0.35  # NCBI demande max 3 requêtes/sec sans API key
 
 
-# ─── Utilitaires ─────────────────────────────────────────────────────
+# ─── PubMed E-utilities ──────────────────────────────────────────────
 
-def clean_html(text):
-    """Supprime les balises HTML et nettoie le texte."""
-    if not text:
-        return ""
-    clean = re.sub(r'<[^>]+>', '', text)
-    clean = re.sub(r'\s+', ' ', clean).strip()
-    return clean[:297] + "..." if len(clean) > 300 else clean
+def eutils_request(endpoint, params):
+    """Effectue une requête vers l'API E-utilities."""
+    url = f"{EUTILS_BASE}/{endpoint}?{urlencode(params, quote_via=quote)}"
+    req = Request(url, headers={"User-Agent": USER_AGENT})
+    with urlopen(req, timeout=30) as resp:
+        return resp.read().decode("utf-8")
 
 
-def parse_rss_date(date_str):
-    """Parse une date RSS (RFC 822) ou Atom (ISO 8601)."""
-    if not date_str:
-        return None
-    date_str = date_str.strip()
-    # RFC 822 (RSS)
-    try:
-        return parsedate_to_datetime(date_str)
-    except Exception:
-        pass
-    # ISO 8601 (Atom)
-    for fmt in ('%Y-%m-%dT%H:%M:%S%z', '%Y-%m-%dT%H:%M:%SZ',
-                '%Y-%m-%dT%H:%M:%S.%f%z', '%Y-%m-%d'):
+def search_pubmed(query, max_results=10, reldate=14):
+    """Recherche des articles récents sur PubMed."""
+    params = {
+        "db": "pubmed",
+        "term": query,
+        "retmax": max_results,
+        "sort": "date",
+        "datetype": "pdat",
+        "reldate": reldate,
+        "retmode": "xml",
+    }
+    xml_str = eutils_request("esearch.fcgi", params)
+    root = ET.fromstring(xml_str)
+
+    ids = []
+    id_list = root.find("IdList")
+    if id_list is not None:
+        ids = [id_el.text for id_el in id_list.findall("Id") if id_el.text]
+
+    return ids
+
+
+def fetch_articles_details(pmids):
+    """Récupère les détails des articles via efetch."""
+    if not pmids:
+        return []
+
+    params = {
+        "db": "pubmed",
+        "id": ",".join(pmids),
+        "retmode": "xml",
+    }
+    xml_str = eutils_request("efetch.fcgi", params)
+    root = ET.fromstring(xml_str)
+
+    articles = []
+    for article_el in root.findall(".//PubmedArticle"):
         try:
-            dt = datetime.strptime(date_str, fmt)
-            return dt.replace(tzinfo=None) if dt.tzinfo else dt
-        except ValueError:
+            articles.append(parse_pubmed_article(article_el))
+        except Exception:
             continue
-    return None
+
+    return articles
 
 
-def fetch_xml(url):
-    """Télécharge et parse un document XML."""
-    req = Request(url, headers={'User-Agent': USER_AGENT})
-    with urlopen(req, timeout=TIMEOUT) as resp:
-        return ET.parse(resp)
+def parse_pubmed_article(article_el):
+    """Parse un élément PubmedArticle XML."""
+    medline = article_el.find("MedlineCitation")
+    article = medline.find("Article")
 
+    # PMID
+    pmid = ""
+    pmid_el = medline.find("PMID")
+    if pmid_el is not None:
+        pmid = pmid_el.text or ""
 
-def get_text(element, tag, namespaces=None):
-    """Extrait le texte d'un sous-élément."""
-    if namespaces:
-        for ns_prefix, ns_uri in namespaces.items():
-            child = element.find(f'{{{ns_uri}}}{tag}')
-            if child is not None and child.text:
-                return child.text.strip()
-    child = element.find(tag)
-    if child is not None and child.text:
-        return child.text.strip()
-    return ""
+    # Titre
+    title = ""
+    title_el = article.find("ArticleTitle")
+    if title_el is not None:
+        title = "".join(title_el.itertext()).strip()
 
+    # Auteurs
+    authors = []
+    author_list = article.find("AuthorList")
+    if author_list is not None:
+        for author_el in author_list.findall("Author"):
+            last = author_el.find("LastName")
+            init = author_el.find("Initials")
+            if last is not None and last.text:
+                name = last.text
+                if init is not None and init.text:
+                    name += f" {init.text}"
+                authors.append(name)
 
-def parse_rss_items(tree):
-    """Parse les items d'un flux RSS 2.0."""
-    root = tree.getroot()
-    items = root.findall('.//item')
-    results = []
+    author_str = ", ".join(authors[:3])
+    if len(authors) > 3:
+        author_str += " et al."
 
-    dc_ns = {'dc': 'http://purl.org/dc/elements/1.1/'}
+    # Abstract
+    abstract = ""
+    abstract_el = article.find("Abstract")
+    if abstract_el is not None:
+        parts = []
+        for text_el in abstract_el.findall("AbstractText"):
+            txt = "".join(text_el.itertext()).strip()
+            if txt:
+                parts.append(txt)
+        abstract = " ".join(parts)
+        if len(abstract) > 300:
+            abstract = abstract[:297] + "..."
 
-    for item in items:
-        title = get_text(item, 'title') or 'Sans titre'
-        link = get_text(item, 'link') or '#'
-        desc = get_text(item, 'description')
-        pub_date_str = get_text(item, 'pubDate')
-        author = get_text(item, 'creator', dc_ns) or get_text(item, 'author')
+    # Date de publication
+    pub_date = ""
+    date_el = article.find(".//ArticleDate")
+    if date_el is None:
+        date_el = article.find(".//PubDate")
+    if date_el is not None:
+        year = date_el.find("Year")
+        month = date_el.find("Month")
+        day = date_el.find("Day")
+        parts = []
+        if day is not None and day.text:
+            parts.append(day.text.zfill(2))
+        if month is not None and month.text:
+            # Mois peut être numérique ou textuel
+            m = month.text
+            month_map = {
+                "Jan": "01", "Feb": "02", "Mar": "03", "Apr": "04",
+                "May": "05", "Jun": "06", "Jul": "07", "Aug": "08",
+                "Sep": "09", "Oct": "10", "Nov": "11", "Dec": "12",
+            }
+            parts.append(month_map.get(m, m.zfill(2)))
+        if year is not None and year.text:
+            parts.append(year.text)
+        pub_date = "/".join(parts)
 
-        results.append({
-            'title': title,
-            'link': link,
-            'summary': clean_html(desc),
-            'authors': author,
-            'date_raw': pub_date_str,
-        })
-
-    return results
-
-
-def parse_atom_entries(tree):
-    """Parse les entrées d'un flux Atom."""
-    root = tree.getroot()
-    ns = ''
-    if root.tag.startswith('{'):
-        ns = root.tag.split('}')[0] + '}'
-
-    entries = root.findall(f'.//{ns}entry')
-    results = []
-
-    for entry in entries:
-        title = ''
-        title_el = entry.find(f'{ns}title')
-        if title_el is not None and title_el.text:
-            title = title_el.text.strip()
-
-        link = '#'
-        link_el = entry.find(f'{ns}link')
-        if link_el is not None:
-            link = link_el.get('href', '#')
-
-        summary = ''
-        for tag in ('summary', 'content'):
-            el = entry.find(f'{ns}{tag}')
-            if el is not None and el.text:
-                summary = clean_html(el.text)
+    # DOI → lien
+    link = f"https://pubmed.ncbi.nlm.nih.gov/{pmid}/"
+    doi_list = article_el.find(".//ArticleIdList")
+    if doi_list is not None:
+        for aid in doi_list.findall("ArticleId"):
+            if aid.get("IdType") == "doi" and aid.text:
+                link = f"https://doi.org/{aid.text}"
                 break
 
-        pub_date_str = ''
-        for tag in ('published', 'updated'):
-            el = entry.find(f'{ns}{tag}')
-            if el is not None and el.text:
-                pub_date_str = el.text.strip()
-                break
+    # Type d'article
+    pub_types = []
+    pt_list = article.find("PublicationTypeList")
+    if pt_list is not None:
+        for pt in pt_list.findall("PublicationType"):
+            if pt.text:
+                pub_types.append(pt.text)
 
-        authors = []
-        for author_el in entry.findall(f'{ns}author'):
-            name_el = author_el.find(f'{ns}name')
-            if name_el is not None and name_el.text:
-                authors.append(name_el.text.strip())
-
-        author_str = ', '.join(authors[:3])
-        if len(authors) > 3:
-            author_str += ' et al.'
-
-        results.append({
-            'title': title or 'Sans titre',
-            'link': link,
-            'summary': summary,
-            'authors': author_str,
-            'date_raw': pub_date_str,
-        })
-
-    return results
+    return {
+        "pmid": pmid,
+        "title": title or "Sans titre",
+        "authors": author_str,
+        "abstract": abstract,
+        "date": pub_date,
+        "link": link,
+        "pub_types": pub_types,
+    }
 
 
 # ─── Logique principale ──────────────────────────────────────────────
 
-def fetch_feed(feed_info):
-    """Récupère et parse un flux RSS/Atom."""
-    print(f"  Fetching: {feed_info['name']}...")
+def fetch_journal(journal_info):
+    """Récupère les articles récents d'une revue via PubMed."""
+    print(f"  {journal_info['short']}...", end=" ", flush=True)
     try:
-        tree = fetch_xml(feed_info['url'])
-        root = tree.getroot()
+        pmids = search_pubmed(
+            journal_info["query"],
+            max_results=MAX_ARTICLES_PER_JOURNAL,
+            reldate=DAYS_LOOKBACK,
+        )
+        time.sleep(REQUEST_DELAY)
 
-        # Détecte RSS vs Atom
-        tag = root.tag.lower().split('}')[-1]
-        if tag == 'feed':
-            raw_items = parse_atom_entries(tree)
-        else:
-            raw_items = parse_rss_items(tree)
+        if not pmids:
+            print("0 articles")
+            return []
 
-        cutoff = datetime.now() - timedelta(days=DAYS_LOOKBACK)
-        articles = []
+        articles = fetch_articles_details(pmids)
+        time.sleep(REQUEST_DELAY)
 
-        for item in raw_items:
-            pub_date = parse_rss_date(item['date_raw'])
+        # Enrichir avec les infos de la revue
+        for art in articles:
+            art["journal"] = journal_info["short"]
+            art["journal_full"] = journal_info["name"]
+            art["color"] = journal_info["color"]
 
-            # Filtre par date si disponible
-            if pub_date and pub_date.replace(tzinfo=None) < cutoff:
-                continue
-
-            articles.append({
-                'title': item['title'],
-                'link': item['link'],
-                'summary': item['summary'],
-                'authors': item['authors'],
-                'date': pub_date.strftime('%d/%m/%Y') if pub_date else '',
-                'journal': feed_info['short'],
-                'journal_full': feed_info['name'],
-                'color': feed_info['color'],
-            })
-
-            if len(articles) >= MAX_ARTICLES_PER_FEED:
-                break
-
-        print(f"    -> {len(articles)} articles")
+        print(f"{len(articles)} articles")
         return articles
 
     except (URLError, HTTPError) as e:
-        print(f"    ✗ Réseau: {e}")
-        return []
-    except ET.ParseError as e:
-        print(f"    ✗ XML invalide: {e}")
+        print(f"erreur réseau: {e}")
         return []
     except Exception as e:
-        print(f"    ✗ Erreur: {e}")
+        print(f"erreur: {e}")
         return []
 
 
 def fetch_all():
-    """Récupère tous les flux."""
+    """Récupère tous les articles de toutes les revues."""
     print("=" * 60)
-    print("EndoNews Weekly — Récupération des articles")
+    print("EndoNews Weekly — PubMed E-utilities")
+    print(f"Période : {DAYS_LOOKBACK} derniers jours")
     print("=" * 60)
 
-    all_articles = {}
+    all_data = {}
     total = 0
 
-    for feed in FEEDS:
-        articles = fetch_feed(feed)
+    for journal in JOURNALS:
+        articles = fetch_journal(journal)
         if articles:
-            all_articles[feed['short']] = {
-                'name': feed['name'],
-                'short': feed['short'],
-                'color': feed['color'],
-                'articles': articles,
+            all_data[journal["short"]] = {
+                "name": journal["name"],
+                "short": journal["short"],
+                "color": journal["color"],
+                "articles": articles,
             }
             total += len(articles)
 
     print(f"\n{'=' * 60}")
-    print(f"Total: {total} articles de {len(all_articles)} revues")
+    print(f"Total : {total} articles de {len(all_data)} revues")
     print(f"{'=' * 60}")
-    return all_articles
+    return all_data
 
 
-def generate_html(all_articles):
-    """Génère la page HTML statique élégante."""
+# ─── Génération HTML ─────────────────────────────────────────────────
+
+def generate_html(all_data):
+    """Génère la page HTML statique."""
     now = datetime.now()
     week_start = now - timedelta(days=DAYS_LOOKBACK)
     date_range = f"{week_start.strftime('%d/%m/%Y')} — {now.strftime('%d/%m/%Y')}"
 
-    total_articles = sum(len(j['articles']) for j in all_articles.values())
-    total_journals = len(all_articles)
+    total_articles = sum(len(j["articles"]) for j in all_data.values())
+    total_journals = len(all_data)
 
     # ── Sections par revue ──
     journal_sections = ""
-    for key, journal in all_articles.items():
+    for key, journal in all_data.items():
         articles_html = ""
-        for art in journal['articles']:
-            authors_line = f'<span class="authors">{escape(art["authors"])}</span>' if art['authors'] else ''
-            date_badge = f'<span class="date-badge">{art["date"]}</span>' if art['date'] else ''
-            summary_p = f'<p class="summary">{escape(art["summary"])}</p>' if art['summary'] else ''
+        for art in journal["articles"]:
+            authors_line = (
+                f'<span class="authors">{escape(art["authors"])}</span>'
+                if art["authors"]
+                else ""
+            )
+            date_badge = (
+                f'<span class="date-badge">{escape(art["date"])}</span>'
+                if art["date"]
+                else ""
+            )
+            abstract_p = (
+                f'<p class="summary">{escape(art["abstract"])}</p>'
+                if art["abstract"]
+                else ""
+            )
+            pmid_badge = (
+                f'<span class="pmid">PMID: {escape(art["pmid"])}</span>'
+                if art["pmid"]
+                else ""
+            )
 
             articles_html += f"""
                 <article class="article-card">
@@ -327,8 +356,9 @@ def generate_html(all_articles):
                     <div class="article-meta">
                         {authors_line}
                         {date_badge}
+                        {pmid_badge}
                     </div>
-                    {summary_p}
+                    {abstract_p}
                 </article>"""
 
         journal_sections += f"""
@@ -342,12 +372,19 @@ def generate_html(all_articles):
             </div>
         </section>"""
 
-    empty_state = '<div class="empty-state"><h2>Aucun article cette semaine</h2><p>Aucun article récent trouvé.</p></div>'
-
-    # ── Tags de navigation ──
+    # ── Navigation ──
     nav_items = ""
-    for key, journal in all_articles.items():
+    for key, journal in all_data.items():
         nav_items += f'<span class="nav-tag" style="background-color: {journal["color"]}">{escape(journal["short"])} ({len(journal["articles"])})</span>\n'
+
+    empty_state = (
+        '<div class="empty-state">'
+        "<h2>Aucun article cette semaine</h2>"
+        "<p>PubMed n'a retourné aucun article récent pour ces revues.</p>"
+        "</div>"
+    )
+
+    content = journal_sections if journal_sections else empty_state
 
     html = f"""<!DOCTYPE html>
 <html lang="fr">
@@ -392,7 +429,6 @@ def generate_html(all_articles):
         }}
         .container {{ max-width: 960px; margin: 0 auto; padding: 0 20px; }}
 
-        /* Header */
         header {{
             background: linear-gradient(135deg, #1a1a2e 0%, #2c3e6b 50%, #1e6b5a 100%);
             color: white; padding: 44px 0 32px; text-align: center;
@@ -400,14 +436,11 @@ def generate_html(all_articles):
         header h1 {{ font-size: 2.1rem; font-weight: 700; letter-spacing: -0.5px; margin-bottom: 4px; }}
         header h1 span {{ font-weight: 300; opacity: 0.85; }}
         .subtitle {{ font-size: 0.95rem; opacity: 0.75; margin-bottom: 4px; }}
-        .header-stats {{
-            display: flex; justify-content: center; gap: 28px; margin-top: 18px;
-        }}
+        .header-stats {{ display: flex; justify-content: center; gap: 28px; margin-top: 18px; }}
         .stat {{ text-align: center; }}
         .stat-number {{ font-size: 1.8rem; font-weight: 700; display: block; }}
         .stat-label {{ font-size: 0.72rem; text-transform: uppercase; letter-spacing: 1px; opacity: 0.65; }}
 
-        /* Nav */
         .nav-bar {{
             background: var(--card-bg); border-bottom: 1px solid var(--border);
             padding: 12px 0; position: sticky; top: 0; z-index: 100; box-shadow: var(--shadow);
@@ -418,12 +451,12 @@ def generate_html(all_articles):
             border-radius: 20px; font-size: 0.76rem; font-weight: 500; opacity: 0.9;
         }}
 
-        /* Main */
         main {{ padding: 32px 0 60px; }}
         .journal-section {{ margin-bottom: 36px; }}
         .journal-header {{
             padding: 10px 16px; margin-bottom: 14px; background: var(--accent-light);
-            border-radius: var(--radius); display: flex; align-items: center; justify-content: space-between;
+            border-radius: var(--radius); display: flex; align-items: center;
+            justify-content: space-between;
         }}
         .journal-header h2 {{ font-size: 1.05rem; font-weight: 600; }}
         .article-count {{ font-size: 0.8rem; color: var(--text-muted); font-weight: 500; }}
@@ -443,9 +476,11 @@ def generate_html(all_articles):
             font-size: 0.72rem; color: var(--text-muted); background: var(--accent-light);
             padding: 2px 8px; border-radius: 10px;
         }}
+        .pmid {{
+            font-size: 0.7rem; color: var(--text-muted); font-family: monospace;
+        }}
         .summary {{ font-size: 0.85rem; color: var(--text-light); line-height: 1.5; }}
 
-        /* Footer */
         footer {{
             text-align: center; padding: 30px 0; border-top: 1px solid var(--border);
             color: var(--text-muted); font-size: 0.8rem;
@@ -492,34 +527,36 @@ def generate_html(all_articles):
 
     <main>
         <div class="container">
-            {journal_sections if journal_sections else empty_state}
+            {content}
         </div>
     </main>
 
     <footer>
         <div class="container">
             <p>EndoNews Weekly &mdash; Généré le {now.strftime('%d/%m/%Y à %H:%M')}</p>
-            <p>Sources : flux RSS publics des revues scientifiques</p>
-            <p style="margin-top: 6px;"><a href="https://github.com/mirakle88/CC_EndoNews" target="_blank">GitHub</a></p>
+            <p>Source : PubMed / NCBI E-utilities</p>
+            <p style="margin-top: 6px;">
+                <a href="https://github.com/mirakle88/CC_EndoNews" target="_blank">GitHub</a>
+            </p>
         </div>
     </footer>
 </body>
 </html>"""
 
-    os.makedirs('output', exist_ok=True)
-    with open('output/index.html', 'w', encoding='utf-8') as f:
+    os.makedirs("output", exist_ok=True)
+    with open("output/index.html", "w", encoding="utf-8") as f:
         f.write(html)
-    with open('output/articles.json', 'w', encoding='utf-8') as f:
-        json.dump(all_articles, f, ensure_ascii=False, indent=2)
+    with open("output/articles.json", "w", encoding="utf-8") as f:
+        json.dump(all_data, f, ensure_ascii=False, indent=2)
 
     print(f"\n-> Page HTML : output/index.html")
     print(f"-> Données   : output/articles.json")
 
 
 def main():
-    articles = fetch_all()
-    generate_html(articles)
+    data = fetch_all()
+    generate_html(data)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

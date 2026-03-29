@@ -4,22 +4,23 @@ Veille hebdomadaire automatisée sur les principales revues scientifiques en end
 
 ## Revues suivies
 
-| Revue | Éditeur |
-|-------|---------|
-| The Journal of Clinical Endocrinology & Metabolism | Oxford Academic |
-| Endocrine Reviews | Oxford Academic |
-| Thyroid | Mary Ann Liebert |
-| Diabetes Care | ADA |
-| Diabetes | ADA |
-| European Journal of Endocrinology | Oxford Academic |
-| Endocrinology | Oxford Academic |
-| The Lancet Diabetes & Endocrinology | Elsevier |
-| Frontiers in Endocrinology | Frontiers |
-| BMC Endocrine Disorders | Springer Nature |
+| Revue | Abréviation |
+|-------|-------------|
+| The Journal of Clinical Endocrinology & Metabolism | JCEM |
+| Endocrine Reviews | Endocr Rev |
+| Thyroid | Thyroid |
+| Diabetes Care | Diabetes Care |
+| Diabetes | Diabetes |
+| European Journal of Endocrinology | EJE |
+| Endocrinology | Endocrinology |
+| The Lancet Diabetes & Endocrinology | Lancet D&E |
+| Frontiers in Endocrinology | Front Endocrinol |
+| Nature Reviews Endocrinology | Nat Rev Endocrinol |
 
 ## Fonctionnement
 
-- **Source** : flux RSS publics des revues
+- **Source** : API PubMed E-utilities (NCBI) — gratuite et fiable
+- **Dépendances** : aucune (bibliothèque standard Python uniquement)
 - **Fréquence** : chaque lundi à 7h UTC (GitHub Actions)
 - **Sortie** : page HTML statique déployée sur GitHub Pages
 - **Coût** : 100% gratuit
@@ -27,7 +28,6 @@ Veille hebdomadaire automatisée sur les principales revues scientifiques en end
 ## Utilisation locale
 
 ```bash
-pip install -r requirements.txt
 python fetch_articles.py
 # Ouvrir output/index.html
 ```

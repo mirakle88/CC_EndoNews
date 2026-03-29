@@ -23,10 +23,7 @@ jobs:
         with:
           python-version: '3.12'
 
-      - name: Install dependencies
-        run: pip install -r requirements.txt
-
-      - name: Fetch articles
+      - name: Fetch articles from PubMed
         run: python fetch_articles.py
 
       - name: Deploy to GitHub Pages
