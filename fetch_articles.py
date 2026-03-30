@@ -47,34 +47,16 @@ JOURNALS = [
         "color": "#c0392b",
     },
     {
-        "name": "Diabetes",
-        "short": "Diabetes",
-        "query": '"Diabetes"[jour] NOT "Diabetes Care"[jour] NOT "Diabetes Obes Metab"[jour]',
-        "color": "#e74c3c",
-    },
-    {
         "name": "European Journal of Endocrinology",
         "short": "EJE",
         "query": '"Eur J Endocrinol"[jour]',
         "color": "#2874a6",
     },
     {
-        "name": "Endocrinology",
-        "short": "Endocrinology",
-        "query": '"Endocrinology"[jour] NOT "Mol Cell Endocrinol"[jour]',
-        "color": "#1e8449",
-    },
-    {
         "name": "The Lancet Diabetes & Endocrinology",
         "short": "Lancet D&E",
         "query": '"Lancet Diabetes Endocrinol"[jour]',
         "color": "#d35400",
-    },
-    {
-        "name": "Frontiers in Endocrinology",
-        "short": "Front Endocrinol",
-        "query": '"Front Endocrinol (Lausanne)"[jour]',
-        "color": "#2e86c1",
     },
     {
         "name": "Nature Reviews Endocrinology",
