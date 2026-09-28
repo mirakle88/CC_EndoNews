@@ -1,0 +1,721 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EndoNews Weekly</title>
+    <style>
+        :root {
+            --bg: #fafbfc;
+            --card-bg: #ffffff;
+            --text: #1a1a2e;
+            --text-light: #555;
+            --text-muted: #888;
+            --border: #e8e8e8;
+            --accent: #2c3e6b;
+            --accent-light: #eef2f7;
+            --link: #1a5276;
+            --shadow: 0 1px 3px rgba(0,0,0,0.06);
+            --shadow-hover: 0 4px 12px rgba(0,0,0,0.1);
+            --radius: 8px;
+        }
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --bg: #0d1117;
+                --card-bg: #161b22;
+                --text: #e6edf3;
+                --text-light: #b1bac4;
+                --text-muted: #7d8590;
+                --border: #30363d;
+                --accent: #6e8fcf;
+                --accent-light: #1c2333;
+                --link: #58a6ff;
+                --shadow: 0 1px 3px rgba(0,0,0,0.3);
+                --shadow-hover: 0 4px 12px rgba(0,0,0,0.4);
+            }
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background: var(--bg); color: var(--text); line-height: 1.6; min-height: 100vh;
+        }
+        .container { max-width: 960px; margin: 0 auto; padding: 0 20px; }
+
+        header {
+            background: linear-gradient(135deg, #1a1a2e 0%, #2c3e6b 50%, #1e6b5a 100%);
+            color: white; padding: 44px 0 32px; text-align: center;
+        }
+        header h1 { font-size: 2.1rem; font-weight: 700; letter-spacing: -0.5px; margin-bottom: 4px; }
+        header h1 span { font-weight: 300; opacity: 0.85; }
+        .subtitle { font-size: 0.95rem; opacity: 0.75; margin-bottom: 4px; }
+        .header-stats { display: flex; justify-content: center; gap: 28px; margin-top: 18px; }
+        .stat { text-align: center; }
+        .stat-number { font-size: 1.8rem; font-weight: 700; display: block; }
+        .stat-label { font-size: 0.72rem; text-transform: uppercase; letter-spacing: 1px; opacity: 0.65; }
+
+        .nav-bar {
+            background: var(--card-bg); border-bottom: 1px solid var(--border);
+            padding: 12px 0; position: sticky; top: 0; z-index: 100; box-shadow: var(--shadow);
+        }
+        .nav-tags { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; }
+        .nav-tag {
+            display: inline-block; color: white; padding: 4px 12px;
+            border-radius: 20px; font-size: 0.76rem; font-weight: 500; opacity: 0.9;
+        }
+
+        main { padding: 32px 0 60px; }
+        .journal-section { margin-bottom: 36px; }
+        .journal-header {
+            padding: 10px 16px; margin-bottom: 14px; background: var(--accent-light);
+            border-radius: var(--radius); display: flex; align-items: center;
+            justify-content: space-between;
+        }
+        .journal-header h2 { font-size: 1.05rem; font-weight: 600; }
+        .article-count { font-size: 0.8rem; color: var(--text-muted); font-weight: 500; }
+
+        .articles-grid { display: flex; flex-direction: column; gap: 10px; }
+        .article-card {
+            background: var(--card-bg); border: 1px solid var(--border);
+            border-radius: var(--radius); padding: 16px 20px; transition: box-shadow 0.2s;
+        }
+        .article-card:hover { box-shadow: var(--shadow-hover); }
+        .article-card a { text-decoration: none; color: var(--link); }
+        .article-card a:hover { text-decoration: underline; }
+        .article-card h3 { font-size: 0.95rem; font-weight: 600; line-height: 1.4; margin-bottom: 6px; }
+        .article-meta { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; margin-bottom: 6px; }
+        .authors { font-size: 0.8rem; color: var(--text-light); font-style: italic; }
+        .date-badge {
+            font-size: 0.72rem; color: var(--text-muted); background: var(--accent-light);
+            padding: 2px 8px; border-radius: 10px;
+        }
+        .pmid {
+            font-size: 0.7rem; color: var(--text-muted); font-family: monospace;
+        }
+        .summary { font-size: 0.85rem; color: var(--text-light); line-height: 1.5; }
+
+        footer {
+            text-align: center; padding: 30px 0; border-top: 1px solid var(--border);
+            color: var(--text-muted); font-size: 0.8rem;
+        }
+        footer a { color: var(--text-muted); }
+
+        .empty-state { text-align: center; padding: 60px 20px; color: var(--text-muted); }
+        .empty-state h2 { font-size: 1.3rem; margin-bottom: 10px; }
+
+        @media (max-width: 600px) {
+            header h1 { font-size: 1.5rem; }
+            .header-stats { gap: 16px; }
+            .stat-number { font-size: 1.4rem; }
+            .article-card { padding: 12px 14px; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>EndoNews <span>Weekly</span></h1>
+            <p class="subtitle">Veille scientifique en endocrinologie</p>
+            <p class="subtitle">14/09/2026 — 28/09/2026</p>
+            <div class="header-stats">
+                <div class="stat">
+                    <span class="stat-number">45</span>
+                    <span class="stat-label">Articles</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-number">7</span>
+                    <span class="stat-label">Revues</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <nav class="nav-bar">
+        <div class="container">
+            <div class="nav-tags">
+                <span class="nav-tag" style="background-color: #1a5276">JCEM (10)</span>
+<span class="nav-tag" style="background-color: #6c3483">Endocr Rev (8)</span>
+<span class="nav-tag" style="background-color: #117864">Thyroid (1)</span>
+<span class="nav-tag" style="background-color: #c0392b">Diabetes Care (10)</span>
+<span class="nav-tag" style="background-color: #2874a6">EJE (9)</span>
+<span class="nav-tag" style="background-color: #d35400">Lancet D&amp;E (2)</span>
+<span class="nav-tag" style="background-color: #8e44ad">Nat Rev Endocrinol (5)</span>
+
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <div class="container">
+            
+        <section class="journal-section">
+            <div class="journal-header" style="border-left: 4px solid #1a5276">
+                <h2>The Journal of Clinical Endocrinology &amp; Metabolism</h2>
+                <span class="article-count">10 articles</span>
+            </div>
+            <div class="articles-grid">
+                
+                <article class="article-card">
+                    <a href="https://doi.org/10.1210/clinem/dgag397" target="_blank" rel="noopener noreferrer">
+                        <h3>Key Findings on the Efficacy and Safety of Testosterone Therapy from Two Large Randomized Trials.</h3>
+                    </a>
+                    <div class="article-meta">
+                        <span class="authors">Braga M, Basaria S</span>
+                        <span class="date-badge">26/09/2026</span>
+                        <span class="pmid">PMID: 42800050</span>
+                    </div>
+                    <p class="summary">Despite widespread use of testosterone therapy, its efficacy and safety in men with age-related low testosterone remain a matter of debate. Elucidating its benefits and risks is essential for clinical decision-making. This narrative review synthesizes evidence from two large randomized controlled...</p>
+                </article>
+                <article class="article-card">
+                    <a href="https://doi.org/10.1210/clinem/dgag393" target="_blank" rel="noopener noreferrer">
+                        <h3>Comparison of Salivary Cortisol, Cortisone, and Dexamethasone with Serum Measurements Across Dynamic Adrenal Testing.</h3>
+                    </a>
+                    <div class="article-meta">
+                        <span class="authors">Ahmadian S, Villavicencio Torres CA, Aggarwal E et al.</span>
+                        <span class="date-badge">26/09/2026</span>
+                        <span class="pmid">PMID: 42791226</span>
+                    </div>
+                    <p class="summary">Salivary cortisol and cortisone provide non-invasive measures of biologically active cortisol, but their performance during dynamic testing remains incompletely defined. The utility of salivary dexamethasone to confirm exposure during dexamethasone suppression testing (DST) is unknown. To compare...</p>
+                </article>
+                <article class="article-card">
+                    <a href="https://doi.org/10.1210/clinem/dgag387" target="_blank" rel="noopener noreferrer">
+                        <h3>Diabetes duration and advanced diabetes-related complications in lower-extremity versus coronary revascularization.</h3>
+                    </a>
+                    <div class="article-meta">
+                        <span class="authors">Takahara M, Soga Y, Iida O</span>
+                        <span class="date-badge">25/09/2026</span>
+                        <span class="pmid">PMID: 42788620</span>
+                    </div>
+                    <p class="summary">Diabetes-related burden, including longer diabetes duration and advanced complications, substantially influences management strategies and healthcare utilization among patients with diabetes. It remains unclear whether the diabetes-related burden is comparable between patients with lower extremit...</p>
+                </article>
+                <article class="article-card">
+                    <a href="https://doi.org/10.1210/clinem/dgag376" target="_blank" rel="noopener noreferrer">
+                        <h3>Rapid gastric emptying rate in postbariatric hypoglycemia and effect of glucagon-like peptide-1 receptor agonist on postprandial hypoglycemia.</h3>
+                    </a>
+                    <div class="article-meta">
+                        <span class="authors">Turk N, Yandle E, Yang J et al.</span>
+                        <span class="date-badge">24/09/2026</span>
+                        <span class="pmid">PMID: 42784533</span>
+                    </div>
+                    <p class="summary">Roux-en-Y gastric bypass (RYGB) and sleeve gastrectomy (SG) are effective obesity treatments, but can be complicated by postbariatric hypoglycemia (PBH). Why some but not other patients develop this complication is unknown. Differential rates of gastric emptying have not been previously evaluated...</p>
+                </article>
+                <article class="article-card">
+                    <a href="https://doi.org/10.1210/clinem/dgag386" target="_blank" rel="noopener noreferrer">
+                        <h3>Correction to: &quot;The Natural History of Adrenal Insufficiency in X-Linked Adrenoleukodystrophy: An International Collaboration&quot;.</h3>
+                    </a>
+                    <div class="article-meta">
+                        
+                        <span class="date-badge">24/09/2026</span>
+                        <span class="pmid">PMID: 42784532</span>
+                    </div>
+                    
+                </article>
+                <article class="article-card">
+                    <a href="https://doi.org/10.1210/clinem/dgag316" target="_blank" rel="noopener noreferrer">
+                        <h3>The dose-response association between wearables-quantified incidental physical activity and type 2 diabetes: a prospective cohort study.</h3>
+                    </a>
+                    <div class="article-meta">
+                        <span class="authors">Sabag A, Biswas RK, Koemel NA et al.</span>
+                        <span class="date-badge">24/09/2026</span>
+                        <span class="pmid">PMID: 42784530</span>
+                    </div>
+                    <p class="summary">This prospective cohort study aimed to quantify dose-response associations between intensity-specific incidental physical activity (IPA) and the incidence of type 2 diabetes (T2D) in a large cohort of UK adults. A secondary aim was to estimate the T2D-specific equivalence of 1 minute of vigorous-...</p>
+                </article>
+                <article class="article-card">
+                    <a href="https://doi.org/10.1210/clinem/dgag389" target="_blank" rel="noopener noreferrer">
+                        <h3>Response to Letter to the Editor: The Free T3/Free T4 Ratio Predicts Relapse After Antithyroid Drug Withdrawal in Pediatric Autoimmune Hyperthyroidism.</h3>
+                    </a>
+                    <div class="article-meta">
+                        <span class="authors">Abbate M, Vincenzi G, Mora S et al.</span>
+                        <span class="date-badge">24/09/2026</span>
+                        <span class="pmid">PMID: 42779083</span>
+                    </div>
+                    
+                </article>
+                <article class="article-card">
+                    <a href="https://doi.org/10.1210/clinem/dgag377" target="_blank" rel="noopener noreferrer">
+                        <h3>Correction to: &quot;Cinacalcet reverses short QT interval in Familial Hypocalciuric Hypercalcemia type 1&quot;.</h3>
+                    </a>
+                    <div class="article-meta">
+                        
+                        <span class="date-badge">23/09/2026</span>
+                        <span class="pmid">PMID: 42776567</span>
+                    </div>
+                    
+                </article>
+                <article class="article-card">
+                    <a href="https://doi.org/10.1210/clinem/dgag390" target="_blank" rel="noopener noreferrer">
+                        <h3>Leveraging Long-Read Sequencing to Bridge the Diagnostic and Equity Gaps in Differences of Sex Development (DSD).</h3>
+                    </a>
+                    <div class="article-meta">
+                        <span class="authors">Délot EC, Vilain E</span>
+                        <span class="date-badge">23/09/2026</span>
+                        <span class="pmid">PMID: 42773944</span>
+                    </div>
+                    <p class="summary">Congenital Adrenal Hyperplasia (CAH) can result from variants in several genes but is most frequently caused by deletions and gene conversions in the segmentally duplicated RCCX module, which contains the CYP21A2 gene and its pseudogene. Current genetic tests vary greatly by laboratory, method, a...</p>
+                </article>
+                <article class="article-card">
+                    <a href="https://doi.org/10.1210/clinem/dgag388" target="_blank" rel="noopener noreferrer">
+                        <h3>Letter to the Editor from Yılmaz et al.: &quot;The Free T3/Free T4 Ratio Predicts Relapse After Antithyroid Drug Withdrawal in Pediatric Autoimmune Hyperthyroidism&quot;.</h3>
+                    </a>
+                    <div class="article-meta">
+                        <span class="authors">Yılmaz E, Koker Özer N, Topal E</span>
+                        <span class="date-badge">23/09/2026</span>
+                        <span class="pmid">PMID: 42773924</span>
+                    </div>
+                    
+                </article>
+            </div>
+        </section>
+        <section class="journal-section">
+            <div class="journal-header" style="border-left: 4px solid #6c3483">
+                <h2>Endocrine Reviews</h2>
+                <span class="article-count">8 articles</span>
+            </div>
+            <div class="articles-grid">
+                
+                <article class="article-card">
+                    <a href="https://doi.org/10.1210/endrev/bnag035" target="_blank" rel="noopener noreferrer">
+                        <h3>The Sentinel Hormone GDF-15, Glucocorticoid Homeostasis and Adrenal Disorders.</h3>
+                    </a>
+                    <div class="article-meta">
+                        <span class="authors">Bonaventura I, Weigand I, Isidori AM et al.</span>
+                        <span class="date-badge">16/09/2026</span>
+                        <span class="pmid">PMID: 42747392</span>
+                    </div>
+                    <p class="summary">Growth and differentiation factor 15 (GDF-15) is a stress-responsive hormone secreted by various cell types in response to cellular stress. To regulate ingestive behaviour, suppress food intake, and induce nausea and vomiting during cellular stress, GDF-15 signals via a brainstem-restricted recep...</p>
+                </article>
+                <article class="article-card">
+                    <a href="https://doi.org/10.1210/endrev/bnag031" target="_blank" rel="noopener noreferrer">
+                        <h3>Correction to &quot;Screening for Endocrine Hypertension: An Endocrine Society Scientific Statement&quot;.</h3>
+                    </a>
+                    <div class="article-meta">
+                        
+                        <span class="date-badge">16/09/2026</span>
+                        <span class="pmid">PMID: 42555025</span>
+                    </div>
+                    
+                </article>
+                <article class="article-card">
+                    <a href="https://doi.org/10.1210/endrev/bnag015" target="_blank" rel="noopener noreferrer">
+                        <h3>Glucocorticoids in pregnancy: a master-switch for fetal maturation.</h3>
+                    </a>
+                    <div class="article-meta">
+                        <span class="authors">Tan Y, Stark MJ, Clifton VL et al.</span>
+                        <span class="date-badge">16/09/2026</span>
+                        <span class="pmid">PMID: 42175714</span>
+                    </div>
+                    <p class="summary">The prepartum surge in plasma glucocorticoids is a critical signal for fetal organ maturation, facilitating the transition from fetal reliance on the placenta for functions such as respiration, nutrition, and waste removal to newborn use of their own physiological systems. The fetal glucocorticoi...</p>
+                </article>
+                <article class="article-card">
+                    <a href="https://doi.org/10.1210/endrev/bnag014" target="_blank" rel="noopener noreferrer">
+                        <h3>Insulin/IGF signaling in islet biology and its therapeutic implications.</h3>
+                    </a>
+                    <div class="article-meta">
+                        <span class="authors">Kim H, Kulkarni RN</span>
+                        <span class="date-badge">16/09/2026</span>
+                        <span class="pmid">PMID: 42159041</span>
+                    </div>
+                    <p class="summary">The islet of Langerhans (or pancreatic islet) is a unique endocrine organ that secretes multiple hormones that in turn orchestrate energy metabolism in humans. As in other metabolic organs, growth factor(s) regulate functional islet mass to maintain whole-body glucose homeostasis. Over the past d...</p>
+                </article>
+                <article class="article-card">
+                    <a href="https://doi.org/10.1210/endrev/bnag013" target="_blank" rel="noopener noreferrer">
+                        <h3>Epigenetics and childhood obesity: DNA methylation coordinates environment and gene regulation.</h3>
+                    </a>
+                    <div class="article-meta">
+                        <span class="authors">Kaimala S, Leow MK, Ansari SA et al.</span>
+                        <span class="date-badge">16/09/2026</span>
+                        <span class="pmid">PMID: 42116681</span>
+                    </div>
+                    <p class="summary">Childhood obesity is a complex disorder which results from the combined contribution of genetics, the environment, and development, which is programmed and coordinated by epigenetic mechanisms. Of them, DNA methylation has emerged as an important molecular interface between environmental inputs a...</p>
+                </article>
+                <article class="article-card">
+                    <a href="https://doi.org/10.1210/endrev/bnag009" target="_blank" rel="noopener noreferrer">
+                        <h3>Regulatory cycles of orexin and glucagon-Like peptide-1 in postviral syndromes.</h3>
+                    </a>
+                    <div class="article-meta">
+                        <span class="authors">Ruhrländer J, Schieffer E, Schieffer B</span>
+                        <span class="date-badge">16/09/2026</span>
+                        <span class="pmid">PMID: 42037238</span>
+                    </div>
+                    <p class="summary">Postviral syndromes are heterogeneous multisystem diseases without a uniform etiology that occur as a result of acute viral infections. During the COVID-19 pandemic, the number of patients increased dramatically due to infections with severe acute respiratory syndrome coronavirus 2 (SARS-CoV-2). ...</p>
+                </article>
+                <article class="article-card">
+                    <a href="https://doi.org/10.1210/endrev/bnag011" target="_blank" rel="noopener noreferrer">
+                        <h3>Acromegaly and cardiovascular disease: mechanisms, clinical impact, and evolving management.</h3>
+                    </a>
+                    <div class="article-meta">
+                        <span class="authors">Araujo-Castro M, Marques P, Cardoso LM et al.</span>
+                        <span class="date-badge">16/09/2026</span>
+                        <span class="pmid">PMID: 42029663</span>
+                    </div>
+                    <p class="summary">Cardiovascular disease is one of the most common and serious complications of acromegaly and a leading contributor to reduced life expectancy in affected individuals. This review examines the prevalence, mechanisms, diagnosis, and management of cardiovascular complications in patients with acrome...</p>
+                </article>
+                <article class="article-card">
+                    <a href="https://doi.org/10.1210/endrev/bnag010" target="_blank" rel="noopener noreferrer">
+                        <h3>Glycated CD59: a novel biomarker for gestational diabetes.</h3>
+                    </a>
+                    <div class="article-meta">
+                        <span class="authors">Toth Castillo M, Drayton Powell S, Biermann A et al.</span>
+                        <span class="date-badge">16/09/2026</span>
+                        <span class="pmid">PMID: 42013312</span>
+                    </div>
+                    <p class="summary">Gestational diabetes mellitus (GDM), defined as glucose intolerance that starts during pregnancy, represents a major public health challenge because it is a major cause of adverse maternal and fetal outcomes and presents a significantly high risk of diabetes, obesity, and cardiovascular disease f...</p>
+                </article>
+            </div>
+        </section>
+        <section class="journal-section">
+            <div class="journal-header" style="border-left: 4px solid #117864">
+                <h2>Thyroid</h2>
+                <span class="article-count">1 article</span>
+            </div>
+            <div class="articles-grid">
+                
+                <article class="article-card">
+                    <a href="https://doi.org/10.1177/10507256261490862" target="_blank" rel="noopener noreferrer">
+                        <h3>Functional Characterization of a Novel Variant of the Thyroid Hormone Receptor Alpha in a Child with Developmental Delay and Abnormal Thyroid Function.</h3>
+                    </a>
+                    <div class="article-meta">
+                        <span class="authors">Caron V, Bonnycastle K, Rio A et al.</span>
+                        <span class="date-badge">20/09/2026</span>
+                        <span class="pmid">PMID: 42764528</span>
+                    </div>
+                    <p class="summary">Resistance to thyroid hormone α (RTHα) is a rare disorder caused by pathogenic THRA variants. We investigated the molecular basis of RTHα in a child with developmental delay, dysmorphic features, and a suggestive biochemical profile. Whole-exome sequencing identified a de novo THRA variant. Cell-...</p>
+                </article>
+            </div>
+        </section>
+        <section class="journal-section">
+            <div class="journal-header" style="border-left: 4px solid #c0392b">
+                <h2>Diabetes Care</h2>
+                <span class="article-count">10 articles</span>
+            </div>
+            <div class="articles-grid">
+                
+                <article class="article-card">
+                    <a href="https://doi.org/10.2337/dci26-0045" target="_blank" rel="noopener noreferrer">
+                        <h3>Automated Insulin Delivery for Pregnancy With Type 1 Diabetes: A Call to Action.</h3>
+                    </a>
+                    <div class="article-meta">
+                        
+                        <span class="date-badge">24/09/2026</span>
+                        <span class="pmid">PMID: 42782208</span>
+                    </div>
+                    <p class="summary">Type 1 diabetes (T1D) requires intensive glycemic management in pregnancy with insulin to achieve pregnancy-specific glycemic targets and avoid serious maternal and perinatal morbidity. Glycemic targets for pregnancy, which are lower than those outside pregnancy, are extremely challenging to achi...</p>
+                </article>
+                <article class="article-card">
+                    <a href="https://doi.org/10.2337/dc26-0784" target="_blank" rel="noopener noreferrer">
+                        <h3>Predictors of Peak Body Weight Loss With Semaglutide in the SELECT Trial.</h3>
+                    </a>
+                    <div class="article-meta">
+                        <span class="authors">Lingvay I, Kushner RF, Kaul U et al.</span>
+                        <span class="date-badge">24/09/2026</span>
+                        <span class="pmid">PMID: 42782193</span>
+                    </div>
+                    <p class="summary">To evaluate whether clinically available baseline characteristics predict peak percentage body weight loss (%BWL) achieved with chronic use of semaglutide. SELECT (Semaglutide Effects on Cardiovascular Outcomes in People with Overweight or Obesity Trial) evaluated the cardiovascular benefits of s...</p>
+                </article>
+                <article class="article-card">
+                    <a href="https://doi.org/10.2337/dc26-1631" target="_blank" rel="noopener noreferrer">
+                        <h3>Effective Sulfonylurea-Sparing First-Line HNF4A-MODY Therapy With Sodium-Dependent Glucose Cotransporter 2 Inhibitors.</h3>
+                    </a>
+                    <div class="article-meta">
+                        <span class="authors">Philbey C</span>
+                        <span class="date-badge">23/09/2026</span>
+                        <span class="pmid">PMID: 42776184</span>
+                    </div>
+                    
+                </article>
+                <article class="article-card">
+                    <a href="https://doi.org/10.2337/dci26-0091" target="_blank" rel="noopener noreferrer">
+                        <h3>An International Position Statement on Practical Approaches for Inpatient Continuous Glucose Monitoring, Insulin Pumps, and Automated Insulin Delivery Systems in Adults.</h3>
+                    </a>
+                    <div class="article-meta">
+                        <span class="authors">Olsen MT, Spanakis EK, Thabit H et al.</span>
+                        <span class="date-badge">22/09/2026</span>
+                        <span class="pmid">PMID: 42770563</span>
+                    </div>
+                    <p class="summary">There is an urgent and unmet need for a practical clinical guideline addressing the use of continuous glucose monitoring (CGM), insulin pumps, and automated insulin delivery (AID) systems in hospital settings. The goal with this position statement is to facilitate effective and safe use of these ...</p>
+                </article>
+                <article class="article-card">
+                    <a href="https://doi.org/10.2337/dca26-0039" target="_blank" rel="noopener noreferrer">
+                        <h3>Effects of Empagliflozin on Cardiovascular Outcomes Are Consistent Across Sociodemographic Subgroups: A Real-World Analysis From the EMPRISE Study.</h3>
+                    </a>
+                    <div class="article-meta">
+                        <span class="authors">Cromer SJ, Tesfaye H, Cho H et al.</span>
+                        <span class="date-badge">21/09/2026</span>
+                        <span class="pmid">PMID: 42765974</span>
+                    </div>
+                    <p class="summary">We aimed to explore the heterogeneity of empagliflozin treatment effects on major adverse cardiovascular events (MACE), hospitalization for heart failure (HHF), and all-cause mortality (ACM) across sociodemographic and cardiovascular disease (CVD) subgroups of adults with type 2 diabetes (T2D). U...</p>
+                </article>
+                <article class="article-card">
+                    <a href="https://doi.org/10.2337/dc26-0540" target="_blank" rel="noopener noreferrer">
+                        <h3>Semaglutide Effects on Insulin Sensitivity and β-Cell Function in Patients With Schizophrenia, Prediabetes, and Obesity Treated With Second-Generation Antipsychotics: Findings From the HISTORI Trial, a 30-Week Randomized, Placebo-Controlled Trial With Semaglutide 1.0 mg Weekly. Diabetes Care 2026;49:XXXX-XXXX.</h3>
+                    </a>
+                    <div class="article-meta">
+                        <span class="authors">Chen L, Wang J</span>
+                        <span class="date-badge">21/09/2026</span>
+                        <span class="pmid">PMID: 42765971</span>
+                    </div>
+                    
+                </article>
+                <article class="article-card">
+                    <a href="https://doi.org/10.2337/dc26-0200" target="_blank" rel="noopener noreferrer">
+                        <h3>Association of Age at Type 1 Diabetes Onset With Survival, Cardiovascular, and Kidney Outcomes: A Nationwide Cohort Study.</h3>
+                    </a>
+                    <div class="article-meta">
+                        <span class="authors">Rawshani A, Eliasson B, McGuire DK et al.</span>
+                        <span class="date-badge">21/09/2026</span>
+                        <span class="pmid">PMID: 42765945</span>
+                    </div>
+                    <p class="summary">To investigate the association of age at type 1 diabetes diagnosis with incident mortality, cardiovascular, and kidney outcomes. In this retrospective cohort study, individuals ≥18 years of age with type 1 diabetes with one or more entries in the Swedish National Diabetes Register (from January 1...</p>
+                </article>
+                <article class="article-card">
+                    <a href="https://doi.org/10.2337/dc26-1197" target="_blank" rel="noopener noreferrer">
+                        <h3>Beyond Traditional Glycemic Measures: CGM Glycemic Profiles Reveal Associations With Cardiometabolic Risk in Individuals Without Diabetes.</h3>
+                    </a>
+                    <div class="article-meta">
+                        <span class="authors">Bakhshi B, Lin H, Sultana N et al.</span>
+                        <span class="date-badge">17/09/2026</span>
+                        <span class="pmid">PMID: 42752803</span>
+                    </div>
+                    <p class="summary">Fasting plasma glucose (FPG) and hemoglobin A1c (HbA1c) may not fully capture the heterogeneity underlying dysglycemia or its associations with cardiometabolic risk factors (CMRFs). We cross-sectionally investigated whether continuous glucose monitoring (CGM) measures and glycemic profiles could ...</p>
+                </article>
+                <article class="article-card">
+                    <a href="https://doi.org/10.2337/dci26-0054" target="_blank" rel="noopener noreferrer">
+                        <h3>Making Modern Diabetes Medications Affordable and Accessible: Lessons From India for Other Countries.</h3>
+                    </a>
+                    <div class="article-meta">
+                        <span class="authors">Mohan V, Sathweek RS, Anjana RM et al.</span>
+                        <span class="date-badge">16/09/2026</span>
+                        <span class="pmid">PMID: 42747945</span>
+                    </div>
+                    <p class="summary">Diabetes affects 589 million adults globally, 80% of whom live in low- and middle-income countries (LMICs). Although modern diabetes therapies such as sodium-glucose cotransporter 2 inhibitors (SGLT2i) and glucagon-like peptide 1 receptor agonists (GLP-1 RA) improve cardiovascular and renal outco...</p>
+                </article>
+                <article class="article-card">
+                    <a href="https://doi.org/10.2337/dc26-1213" target="_blank" rel="noopener noreferrer">
+                        <h3>From Alert to Action: Electronic Practice Advisory Improves DSMES Referrals Over 18 Months.</h3>
+                    </a>
+                    <div class="article-meta">
+                        <span class="authors">Donahue KE, Halladay JR, Chen P et al.</span>
+                        <span class="date-badge">16/09/2026</span>
+                        <span class="pmid">PMID: 42747941</span>
+                    </div>
+                    <p class="summary">Engagement in diabetes self-management education and support (DSMES) is suboptimal among people with type 2 diabetes (T2D). The PROMPT study examined whether referral rates to DSMES increased through a best practice advisory (BPA) deployed during clinic visits via the electronic health record. In...</p>
+                </article>
+            </div>
+        </section>
+        <section class="journal-section">
+            <div class="journal-header" style="border-left: 4px solid #2874a6">
+                <h2>European Journal of Endocrinology</h2>
+                <span class="article-count">9 articles</span>
+            </div>
+            <div class="articles-grid">
+                
+                <article class="article-card">
+                    <a href="https://doi.org/10.1093/ejendo/lvag186" target="_blank" rel="noopener noreferrer">
+                        <h3>Off-label palopegteriparatide for severe pediatric postsurgical hypocalcemia.</h3>
+                    </a>
+                    <div class="article-meta">
+                        <span class="authors">Pérez Reyes P, Rebollo Román Á, Alhambra Expósito MR et al.</span>
+                        <span class="date-badge">25/09/2026</span>
+                        <span class="pmid">PMID: 42789535</span>
+                    </div>
+                    <p class="summary">Hypoparathyroidism is the most common complication after total thyroidectomy and may be particularly severe in pediatric Graves&#x27; disease. We report the case of a 14-year-old boy with Graves&#x27; disease who developed profound postoperative hypocalcemia after total thyroidectomy, with serum calcium 5....</p>
+                </article>
+                <article class="article-card">
+                    <a href="https://doi.org/10.1093/ejendo/lvag184" target="_blank" rel="noopener noreferrer">
+                        <h3>Environmental pollution is associated with poorer survival in patients with adrenocortical carcinoma: findings from a national cohort study in Italy.</h3>
+                    </a>
+                    <div class="article-meta">
+                        <span class="authors">Puglisi S, Calabrese A, Messina E et al.</span>
+                        <span class="date-badge">25/09/2026</span>
+                        <span class="pmid">PMID: 42789530</span>
+                    </div>
+                    <p class="summary">The impact of environmental pollution on adrenocortical carcinoma (ACC) remains largely unexplored. Although a few studies have assessed the incidence of ACC in polluted areas, no data are available on clinical outcomes. We carried out a retrospective multicentre cohort study in adult patients wi...</p>
+                </article>
+                <article class="article-card">
+                    <a href="https://doi.org/10.1093/ejendo/lvag185" target="_blank" rel="noopener noreferrer">
+                        <h3>Transition to once-weekly growth hormone in paediatric isolated growth hormone deficiency: A real-world experience.</h3>
+                    </a>
+                    <div class="article-meta">
+                        <span class="authors">Sotiriou G, Moutafi M, Triantafyllou P et al.</span>
+                        <span class="date-badge">24/09/2026</span>
+                        <span class="pmid">PMID: 42779506</span>
+                    </div>
+                    <p class="summary">To evaluate real-world auxological and biochemical outcomes in children and adolescents with isolated growth hormone deficiency (GHD) who transitioned from daily recombinant human growth hormone to once-weekly somatrogon. Single-centre retrospective observational study. Seventy-three paediatric p...</p>
+                </article>
+                <article class="article-card">
+                    <a href="https://doi.org/10.1093/ejendo/lvag183" target="_blank" rel="noopener noreferrer">
+                        <h3>Pituitary adenomas in older patients - approaches, challenges and future directions.</h3>
+                    </a>
+                    <div class="article-meta">
+                        <span class="authors">Urwyler SA, Esposito D, Fountas A et al.</span>
+                        <span class="date-badge">23/09/2026</span>
+                        <span class="pmid">PMID: 42773730</span>
+                    </div>
+                    <p class="summary">Several pituitary adenomas are diagnosed at an old age. Over the decades, the increase in life expectancy has led to fundamental changes in the age structure of the society. As a result of this, the number of elderly patients newly diagnosed or living with a pituitary adenoma is increasing. Clini...</p>
+                </article>
+                <article class="article-card">
+                    <a href="https://doi.org/10.1093/ejendo/lvag179" target="_blank" rel="noopener noreferrer">
+                        <h3>Multimodal Imaging for Adrenal Tumor Characterization: Clinical Impact of the 2023 European Guidelines - A Single-Center Retrospective Study.</h3>
+                    </a>
+                    <div class="article-meta">
+                        <span class="authors">Lutz E, Zaragori T, Nominé-Criqui C et al.</span>
+                        <span class="date-badge">21/09/2026</span>
+                        <span class="pmid">PMID: 42766813</span>
+                    </div>
+                    <p class="summary">Adrenal lesions are becoming increasingly common with the advent of abdominal imaging. Although mostly benign and nonfunctional, some cases may be malignant or secretory and justify adrenalectomy. The 2023 European guidelines propose a more conservative approach (focused on simple radiological cr...</p>
+                </article>
+                <article class="article-card">
+                    <a href="https://doi.org/10.1093/ejendo/lvag182" target="_blank" rel="noopener noreferrer">
+                        <h3>Dietary Interventions and Vitamin D3 Replacement in Pituitary Tumors: a Systematic Review.</h3>
+                    </a>
+                    <div class="article-meta">
+                        <span class="authors">Te Nijenhuis-Noort LC, van de Groef R, Refardt J et al.</span>
+                        <span class="date-badge">20/09/2026</span>
+                        <span class="pmid">PMID: 42764013</span>
+                    </div>
+                    <p class="summary">Pituitary neuroendocrine tumors (PitNETs) cause hormonal imbalances that impair metabolic health and quality of life (QoL). Dietary interventions may mitigate these comorbidities. This review evaluated the effectiveness of dietary strategies in improving disease-related metabolic, and bone outcom...</p>
+                </article>
+                <article class="article-card">
+                    <a href="https://doi.org/10.1093/ejendo/lvag181" target="_blank" rel="noopener noreferrer">
+                        <h3>Bone marrow responses to GLP-1 and GIP infusion under hyperglycaemic conditions.</h3>
+                    </a>
+                    <div class="article-meta">
+                        <span class="authors">Hansen NW, Hansen MS, Havelund J et al.</span>
+                        <span class="date-badge">19/09/2026</span>
+                        <span class="pmid">PMID: 42762476</span>
+                    </div>
+                    <p class="summary">Food intake stimulates secretion of incretin hormones glucagon-like peptide-1 (GLP-1) and glucose-dependent insulinotropic polypeptide (GIP), which acutely suppress systemic markers of bone resorption in humans. Whether incretins exert parallel effects on bone turnover within the bone marrow (BM)...</p>
+                </article>
+                <article class="article-card">
+                    <a href="https://doi.org/10.1093/ejendo/lvag180" target="_blank" rel="noopener noreferrer">
+                        <h3>Cardiovascular Morbidity in Acromegaly during a Long-term Follow-Up - a Nationwide Cohort Study.</h3>
+                    </a>
+                    <div class="article-meta">
+                        <span class="authors">Partanen A, Peltola E, Huhtala H et al.</span>
+                        <span class="date-badge">18/09/2026</span>
+                        <span class="pmid">PMID: 42758639</span>
+                    </div>
+                    <p class="summary">Acromegaly has been associated with increased cardiovascular morbidity, but it is unclear to what extent this holds true in contemporary acromegaly cohorts and when the cardiovascular diseases (CVDs) evolve in relation to the time of diagnosis. Retrospective cohort study. Cardiovascular morbidity...</p>
+                </article>
+                <article class="article-card">
+                    <a href="https://doi.org/10.1093/ejendo/lvag177" target="_blank" rel="noopener noreferrer">
+                        <h3>Genetic testing and reporting: What the endocrinologists should know and can expect (Joint position paper of the ENDO-ERN).</h3>
+                    </a>
+                    <div class="article-meta">
+                        <span class="authors">Eggermann T, Lildballe DL, Cools M et al.</span>
+                        <span class="date-badge">16/09/2026</span>
+                        <span class="pmid">PMID: 42744303</span>
+                    </div>
+                    <p class="summary">Over the last decade, next generation sequencing (NGS) has become an essential tool for diagnostic DNA testing in human genetics. To improve the understanding of available genetic testing strategies and to facilitate the request of genetic testing in daily endocrine practice, clinical and laborat...</p>
+                </article>
+            </div>
+        </section>
+        <section class="journal-section">
+            <div class="journal-header" style="border-left: 4px solid #d35400">
+                <h2>The Lancet Diabetes &amp; Endocrinology</h2>
+                <span class="article-count">2 articles</span>
+            </div>
+            <div class="articles-grid">
+                
+                <article class="article-card">
+                    <a href="https://doi.org/10.1016/S2213-8587(26)00192-0" target="_blank" rel="noopener noreferrer">
+                        <h3>New genomic understanding and challenges in clinical care of Turner syndrome.</h3>
+                    </a>
+                    <div class="article-meta">
+                        <span class="authors">Gravholt CH, Balle CM, Hasselholm EB et al.</span>
+                        <span class="date-badge">25/09/2026</span>
+                        <span class="pmid">PMID: 42790437</span>
+                    </div>
+                    <p class="summary">Turner syndrome is a sex chromosome abnormality in female individuals characterised by the complete or partial loss of one X chromosome in all or some cells. It is a rare genetic condition occurring in approximately 50 per 100 000 (1 in 2000) female individuals. Turner syndrome is associated with...</p>
+                </article>
+                <article class="article-card">
+                    <a href="https://doi.org/10.1016/S2213-8587(26)00254-8" target="_blank" rel="noopener noreferrer">
+                        <h3>Correction to Lancet Diabetes Endocrinol 2023; 11: 402-13.</h3>
+                    </a>
+                    <div class="article-meta">
+                        
+                        <span class="date-badge">25/09/2026</span>
+                        <span class="pmid">PMID: 42790436</span>
+                    </div>
+                    
+                </article>
+            </div>
+        </section>
+        <section class="journal-section">
+            <div class="journal-header" style="border-left: 4px solid #8e44ad">
+                <h2>Nature Reviews Endocrinology</h2>
+                <span class="article-count">5 articles</span>
+            </div>
+            <div class="articles-grid">
+                
+                <article class="article-card">
+                    <a href="https://doi.org/10.1038/s41574-026-01310-4" target="_blank" rel="noopener noreferrer">
+                        <h3>Adipocyte-derived oxylipin suppresses breast cancer growth.</h3>
+                    </a>
+                    <div class="article-meta">
+                        <span class="authors">Greenhill C</span>
+                        <span class="date-badge">25/09/2026</span>
+                        <span class="pmid">PMID: 42791390</span>
+                    </div>
+                    
+                </article>
+                <article class="article-card">
+                    <a href="https://doi.org/10.1038/s41574-026-01303-3" target="_blank" rel="noopener noreferrer">
+                        <h3>Diagnosis and management of Silver-Russell syndrome: second international consensus statement.</h3>
+                    </a>
+                    <div class="article-meta">
+                        <span class="authors">Wakeling E, Davies JH, Giabicani E et al.</span>
+                        <span class="date-badge">23/09/2026</span>
+                        <span class="pmid">PMID: 42778655</span>
+                    </div>
+                    <p class="summary">This international Consensus Statement updates 2016 guidelines for diagnosis and management of individuals with Silver-Russell syndrome (SRS), using a Delphi-like process to reach agreement through iterative expert discussions, based on published data and/or expert opinion. Individuals referred w...</p>
+                </article>
+                <article class="article-card">
+                    <a href="https://doi.org/10.1038/s41574-026-01302-4" target="_blank" rel="noopener noreferrer">
+                        <h3>The causes of cachexia: key signals and the brain.</h3>
+                    </a>
+                    <div class="article-meta">
+                        <span class="authors">Daly A, Yin SL, Coll AP</span>
+                        <span class="date-badge">21/09/2026</span>
+                        <span class="pmid">PMID: 42768096</span>
+                    </div>
+                    <p class="summary">Cachexia is a multisystem, complex disorder of body weight and body composition characterized by a relentless, non-resolving wasting of metabolic reserve that, although long recognized and described, continues to elude effective treatment. A continued focus on central nervous system pathways as k...</p>
+                </article>
+                <article class="article-card">
+                    <a href="https://doi.org/10.1038/s41574-026-01301-5" target="_blank" rel="noopener noreferrer">
+                        <h3>Nutrition transitions, obesity and T2DM in the Middle East and North Africa.</h3>
+                    </a>
+                    <div class="article-meta">
+                        <span class="authors">AlEssa HB, Malik VS, Hu FB</span>
+                        <span class="date-badge">18/09/2026</span>
+                        <span class="pmid">PMID: 42760378</span>
+                    </div>
+                    <p class="summary">Obesity and type 2 diabetes mellitus (T2DM) are global epidemics, but their burden is particularly pronounced in the Middle East and North Africa (MENA) region. This Review provides a comprehensive overview of their epidemiological landscape among adults in the MENA region, encompassing disease b...</p>
+                </article>
+                <article class="article-card">
+                    <a href="https://doi.org/10.1038/s41574-026-01307-z" target="_blank" rel="noopener noreferrer">
+                        <h3>Monitoring corticosteroid levels in primary aldosteronism.</h3>
+                    </a>
+                    <div class="article-meta">
+                        <span class="authors">Greenhill C</span>
+                        <span class="date-badge">15/09/2026</span>
+                        <span class="pmid">PMID: 42745063</span>
+                    </div>
+                    
+                </article>
+            </div>
+        </section>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>EndoNews Weekly &mdash; Généré le 28/09/2026 à 14:52</p>
+            <p>Source : PubMed / NCBI E-utilities</p>
+            <p style="margin-top: 6px;">
+                <a href="https://github.com/mirakle88/CC_EndoNews" target="_blank">GitHub</a>
+            </p>
+        </div>
+    </footer>
+</body>
+</html>
