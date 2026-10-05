@@ -1,0 +1,859 @@
+{
+  "JCEM": {
+    "name": "The Journal of Clinical Endocrinology & Metabolism",
+    "short": "JCEM",
+    "color": "#1a5276",
+    "articles": [
+      {
+        "pmid": "42831273",
+        "title": "Functional Hypothalamic Amenorrhea Phenotype and Cardiovascular Disease Risk.",
+        "authors": "Shufelt CL, Stuart JJ, Karam J et al.",
+        "abstract": "Menstrual irregularities have been associated with cardiovascular disease (CVD) risk, but underlying etiologies may confer distinct risk profiles. Functional hypothalamic amenorrhea (FHA) has not been evaluated as a separate risk phenotype. To assess the association between FHA phenotype and inci...",
+        "date": "05/10/2026",
+        "link": "https://doi.org/10.1210/clinem/dgag405",
+        "pub_types": [
+          "Journal Article"
+        ],
+        "journal": "JCEM",
+        "journal_full": "The Journal of Clinical Endocrinology & Metabolism",
+        "color": "#1a5276"
+      },
+      {
+        "pmid": "42828437",
+        "title": "Approach to the pregnant patient with prolactinoma.",
+        "authors": "Karaca Z, Kelestimur F",
+        "abstract": "Prolactinomas account for approximately half of the pituitary adenomas and predominantly affect women of reproductive age. Hyperprolactinemia commonly causes infertility by suppressing hypothalamic gonadotropin-releasing hormone (GnRH) secretion and impairing gonadal function. Because dopamine ag...",
+        "date": "03/10/2026",
+        "link": "https://doi.org/10.1210/clinem/dgag408",
+        "pub_types": [
+          "Journal Article"
+        ],
+        "journal": "JCEM",
+        "journal_full": "The Journal of Clinical Endocrinology & Metabolism",
+        "color": "#1a5276"
+      },
+      {
+        "pmid": "42816959",
+        "title": "Baseline Plasma Metabolites Associated with Subsequent Response to Lifestyle Intervention in People with Prediabetes.",
+        "authors": "Asuzu P, Stentz F, Chiu CY et al.",
+        "abstract": "Plasma metabolites have been associated with the development of type 2 diabetes (T2D) and prediabetes. To test the hypothesis that baseline metabolites predict response to lifestyle intervention (LI) in people with prediabetes. Longitudinal cohort study. Academic health center. Adults with predia...",
+        "date": "01/10/2026",
+        "link": "https://doi.org/10.1210/clinem/dgag403",
+        "pub_types": [
+          "Journal Article"
+        ],
+        "journal": "JCEM",
+        "journal_full": "The Journal of Clinical Endocrinology & Metabolism",
+        "color": "#1a5276"
+      },
+      {
+        "pmid": "42816952",
+        "title": "Nadir Prolactin-guided Individualized Cabergoline Therapy Achieves Durable Remission and Safe Pregnancy in Prolactinomas.",
+        "authors": "Miki N, Ono M, Izumi SI et al.",
+        "abstract": "Achieving durable prolactinoma remission while preserving safe pregnancy remains a central unmet goal of cabergoline therapy. To prospectively evaluate individualized-dose cabergoline therapy for safe pregnancy, remission, and dosing optimization. Women with 310 prolactinomas comprised 97 bromocr...",
+        "date": "01/10/2026",
+        "link": "https://doi.org/10.1210/clinem/dgag406",
+        "pub_types": [
+          "Journal Article"
+        ],
+        "journal": "JCEM",
+        "journal_full": "The Journal of Clinical Endocrinology & Metabolism",
+        "color": "#1a5276"
+      },
+      {
+        "pmid": "42810859",
+        "title": "Diagnostic Yield of Laboratory-Based Screening for Hypophosphatasia Among Chinese Children With Low Alkaline Phosphatase.",
+        "authors": "Zhang D, Wang X, Zhou L et al.",
+        "abstract": "Hypophosphatasia (HPP) is a rare metabolic bone disease caused by pathogenic variants in ALPL gene. Due to its marked phenotypic heterogeneity, milder pediatric forms are frequently underdiagnosed, and systematic, laboratory-based screening strategies remain poorly defined. To establish a routine...",
+        "date": "30/09/2026",
+        "link": "https://doi.org/10.1210/clinem/dgag400",
+        "pub_types": [
+          "Journal Article"
+        ],
+        "journal": "JCEM",
+        "journal_full": "The Journal of Clinical Endocrinology & Metabolism",
+        "color": "#1a5276"
+      },
+      {
+        "pmid": "42810730",
+        "title": "Glycemic and psychosocial outcomes of automated insulin delivery in older and high-risk populations with type 1 diabetes: a systematic review and meta-analysis.",
+        "authors": "Oktavian P, Kencono Wungu CD, Amin IM et al.",
+        "abstract": "Automated insulin delivery (AID) has revolutionized care for people with type 1 diabetes. However, its efficacy and safety in older adults (≥60 years) and high-risk populations, including those with impaired awareness of hypoglycemia, or cognitive or functional impairment, have not been systemati...",
+        "date": "30/09/2026",
+        "link": "https://doi.org/10.1210/clinem/dgag344",
+        "pub_types": [
+          "Journal Article"
+        ],
+        "journal": "JCEM",
+        "journal_full": "The Journal of Clinical Endocrinology & Metabolism",
+        "color": "#1a5276"
+      },
+      {
+        "pmid": "42809708",
+        "title": "Pancreatic Fat and Stiffness Reflect Distinct Features of Pancreatic Remodeling and β-Cell Function.",
+        "authors": "De Lucia SS, Ciccarelli G, Gliozzo G et al.",
+        "abstract": "Fatty pancreas is associated with obesity and metabolic alterations and may coexist with pancreatic structural remodeling. However, its contribution to β-cell dysfunction remains unclear. We investigated the relationship between pancreatic fat, tissue remodeling, and β-cell function. We conducted...",
+        "date": "29/09/2026",
+        "link": "https://doi.org/10.1210/clinem/dgag399",
+        "pub_types": [
+          "Journal Article"
+        ],
+        "journal": "JCEM",
+        "journal_full": "The Journal of Clinical Endocrinology & Metabolism",
+        "color": "#1a5276"
+      },
+      {
+        "pmid": "42809706",
+        "title": "Metabolic status modifies skeletal response to active vitamin D: A post hoc analysis of the DPVD randomized trial.",
+        "authors": "Kawahara T, Toda M, Kanagawa M et al.",
+        "abstract": "Active vitamin D analogs increase bone mineral density (BMD), but inter-individual variability in skeletal response remains unexplained. Emerging evidence suggests skeletal remodeling is influenced by systemic metabolic status. Therefore, we examined whether metabolic state, defined by glycemic t...",
+        "date": "29/09/2026",
+        "link": "https://doi.org/10.1210/clinem/dgag396",
+        "pub_types": [
+          "Journal Article"
+        ],
+        "journal": "JCEM",
+        "journal_full": "The Journal of Clinical Endocrinology & Metabolism",
+        "color": "#1a5276"
+      },
+      {
+        "pmid": "42808848",
+        "title": "An agentic, no-code artificial intelligence workflow for developing a thyroid nodule ultrasound malignancy classifier.",
+        "authors": "Thomas J, Pozdeyev N",
+        "abstract": "Convolutional neural networks can classify thyroid nodules on ultrasound, yet published models are seldom available for independent testing, require machine learning expertise to develop and deploy, and are validated mostly on papillary thyroid carcinoma. To test whether an autonomous (\"agentic\")...",
+        "date": "29/09/2026",
+        "link": "https://doi.org/10.1210/clinem/dgag351",
+        "pub_types": [
+          "Journal Article"
+        ],
+        "journal": "JCEM",
+        "journal_full": "The Journal of Clinical Endocrinology & Metabolism",
+        "color": "#1a5276"
+      },
+      {
+        "pmid": "42806822",
+        "title": "Diagnostic Accuracy Study of Morning Salivary Cortisone for Screening Adrenal Insufficiency in a Real-World Cohort.",
+        "authors": "Televantos C, Monaghan PJ, Michaelidou M et al.",
+        "abstract": "Morning serum cortisol is used to screen for adrenal insufficiency, but requires venepuncture, early morning clinic attendance, and may be affected by altered corticosteroid-binding globulin (CBG) levels. Salivary cortisone is a non-invasive, home-based alternative. To assess the diagnostic accur...",
+        "date": "29/09/2026",
+        "link": "https://doi.org/10.1210/clinem/dgag401",
+        "pub_types": [
+          "Journal Article"
+        ],
+        "journal": "JCEM",
+        "journal_full": "The Journal of Clinical Endocrinology & Metabolism",
+        "color": "#1a5276"
+      }
+    ]
+  },
+  "Endocr Rev": {
+    "name": "Endocrine Reviews",
+    "short": "Endocr Rev",
+    "color": "#6c3483",
+    "articles": [
+      {
+        "pmid": "42814759",
+        "title": "Menopause-driven metabolomic shifts: unravelling cardiovascular disease risk in women.",
+        "authors": "Molina-López C, Rojas-Torres M, Rubio A et al.",
+        "abstract": "Menopause marks the end of a woman's reproductive life, and the transition to this stage is accompanied by profound physiological and metabolic changes. These include alterations in lipoproteins and various metabolites, such as lipids, fatty acids, and amino acids, resulting in a more atherogenic...",
+        "date": "30/09/2026",
+        "link": "https://doi.org/10.1210/endrev/bnag036",
+        "pub_types": [
+          "Journal Article"
+        ],
+        "journal": "Endocr Rev",
+        "journal_full": "Endocrine Reviews",
+        "color": "#6c3483"
+      }
+    ]
+  },
+  "Thyroid": {
+    "name": "Thyroid",
+    "short": "Thyroid",
+    "color": "#117864",
+    "articles": [
+      {
+        "pmid": "42820254",
+        "title": "Exceptional and Durable Response to Selpercatinib in a Patient with Apparently RET-Negative, HRAS-, and NF1-Mutated Metastatic Medullary Thyroid Carcinoma.",
+        "authors": "Alzahrani AS, Benito A, Alghamdi B et al.",
+        "abstract": "Selpercatinib is approved for RET-mutated medullary thyroid carcinoma (MTC); its activity in tumors without detectable RET alterations is uncertain. A 50-year-old woman developed rapidly progressive MTC (Ki-67 = 30%) with extensive liver and bone metastases. Because of severe symptomatic progress...",
+        "date": "01/10/2026",
+        "link": "https://doi.org/10.1177/10507256261493665",
+        "pub_types": [
+          "Journal Article"
+        ],
+        "journal": "Thyroid",
+        "journal_full": "Thyroid",
+        "color": "#117864"
+      },
+      {
+        "pmid": "42813606",
+        "title": "What Happens after an Incidental Thyroid Nodule? Patterns of Thyroid Ultrasound Use and Downstream Evaluation.",
+        "authors": "Larios F, Vilatuna Andrango L, Borras-Osorio M et al.",
+        "abstract": "Incidental thyroid nodules (ITNs) detected on nonthyroid imaging contribute to thyroid cancer overdiagnosis, largely through downstream evaluation initiated by thyroid ultrasound (TUS). However, TUS follow-up rates for ITNs and their drivers in routine practice remain unclear. We quantified TUS u...",
+        "date": "30/09/2026",
+        "link": "https://doi.org/10.1177/10507256261493769",
+        "pub_types": [
+          "Journal Article"
+        ],
+        "journal": "Thyroid",
+        "journal_full": "Thyroid",
+        "color": "#117864"
+      },
+      {
+        "pmid": "42644464",
+        "title": "Suppressed cGAS-STING DNA Sensing Drives Immune Evasion in Anaplastic Thyroid Cancer.",
+        "authors": "Zhu XG, Acharya M, Hwang E et al.",
+        "abstract": "Anaplastic thyroid cancer (ATC) is a highly lethal malignancy with poor survival and limited therapeutic options. The mechanisms driving immune evasion in ATC remain poorly understood. The cyclic GMP-AMP synthase-stimulator of interferon genes (cGAS-STING) pathway is a key mediator of innate immu...",
+        "date": "26/08/2026",
+        "link": "https://doi.org/10.1177/10507256261481666",
+        "pub_types": [
+          "Journal Article",
+          "Research Support, N.I.H., Intramural"
+        ],
+        "journal": "Thyroid",
+        "journal_full": "Thyroid",
+        "color": "#117864"
+      },
+      {
+        "pmid": "42636095",
+        "title": "A Novel Protocol for Pre-Treatment Diagnostic 131I Scan Within 24 Hours Post-Second rhTSH Administration to Guide Radioiodine Therapy in Differentiated Thyroid Cancer.",
+        "authors": "Shen R, Yang H, Ye X et al.",
+        "abstract": "In the current conventional recombinant human thyrotropin (rhTSH) protocol, radioiodine therapy (RAIT) is given at 24 h post-second injection and diagnostic 131I whole-body scan (Dx-WBS) at 72 h; hence, Dx-WBS cannot precede RAIT within the same two-injection cycle. This study aimed to evaluate w...",
+        "date": "24/08/2026",
+        "link": "https://doi.org/10.1177/10507256261483389",
+        "pub_types": [
+          "Clinical Trial Protocol",
+          "Journal Article",
+          "Research Support, Non-U.S. Gov't"
+        ],
+        "journal": "Thyroid",
+        "journal_full": "Thyroid",
+        "color": "#117864"
+      },
+      {
+        "pmid": "42635064",
+        "title": "Pregnancy after Hemithyroidectomy: Increased Risk of Gestational Overt Hypothyroidism Despite Favorable Obstetric Outcomes: A Nationwide Study.",
+        "authors": "Yamin T, Asias A, Osovizky Y et al.",
+        "abstract": "To assess the association between preconception hemithyroidectomy and the risk of gestational hypothyroidism and obstetric outcomes. This nationwide population-based retrospective cohort study compared euthyroid pregnant women with a history of hemithyroidectomy prior to conception with age- and ...",
+        "date": "24/08/2026",
+        "link": "https://doi.org/10.1177/10507256261483410",
+        "pub_types": [
+          "Journal Article"
+        ],
+        "journal": "Thyroid",
+        "journal_full": "Thyroid",
+        "color": "#117864"
+      },
+      {
+        "pmid": "42615203",
+        "title": "Diminished Pro-Inflammatory Characteristics in Murine Bone Marrow Derived Macrophages with Impaired Thyroid Hormone Receptor Alpha 1 Signaling.",
+        "authors": "Hoen E, Falize K, Jongejan A et al.",
+        "abstract": "Macrophages are versatile phagocytes of the innate immune system with functions ranging from pro-inflammatory to immunomodulatory. Macrophages are receptive to signals from thyroid hormones (THs). Here, we studied the role of the TH receptor (TR)α1 in macrophage function. Using wild type (WT) and...",
+        "date": "19/08/2026",
+        "link": "https://doi.org/10.1177/10507256261479514",
+        "pub_types": [
+          "Journal Article"
+        ],
+        "journal": "Thyroid",
+        "journal_full": "Thyroid",
+        "color": "#117864"
+      },
+      {
+        "pmid": "42615197",
+        "title": "Predictors of Long-Term Fatigue in Patients with Differentiated Thyroid Cancer: A Nationwide Prospective Study.",
+        "authors": "Winter J, Axelsson E, Bonn S et al.",
+        "abstract": "Fatigue is a frequent and distressing symptom in patients with differentiated thyroid cancer (DTC) and may persist for years posttreatment, negatively impacting the quality of life. This study aimed to investigate predictors of long-term fatigue in DTC patients to identify patients who may benefi...",
+        "date": "19/08/2026",
+        "link": "https://doi.org/10.1177/10507256261479260",
+        "pub_types": [
+          "Journal Article",
+          "Research Support, Non-U.S. Gov't"
+        ],
+        "journal": "Thyroid",
+        "journal_full": "Thyroid",
+        "color": "#117864"
+      },
+      {
+        "pmid": "42605188",
+        "title": "Second Primary Malignancies Among Pediatric and Young Adult Survivors of Differentiated Thyroid Cancer: Real-World Evidence.",
+        "authors": "Bello R, Yackobovitch-Gavan M, Lazar L et al.",
+        "abstract": "Differentiated thyroid cancer (DTC) is the most common endocrine malignancy among children, adolescents, and young adults (CAYA). While prognosis is generally favorable, rising incidence, longer survivorship, and radioactive iodine (RAI) treatment raise concern for late effects, particularly seco...",
+        "date": "16/08/2026",
+        "link": "https://doi.org/10.1177/10507256261475827",
+        "pub_types": [
+          "Journal Article"
+        ],
+        "journal": "Thyroid",
+        "journal_full": "Thyroid",
+        "color": "#117864"
+      },
+      {
+        "pmid": "42592648",
+        "title": "Discontinuous Peripheral Punctate Echogenic Foci in Thyroid Nodules: A New Sonographic Pattern Suggestive of Papillary Carcinoma.",
+        "authors": "Daibes L, Spiezia S, Nascimento MF et al.",
+        "abstract": "Ultrasound risk stratification systems for thyroid nodules worldwide describe different types of echogenic foci, including punctate echogenic foci (microcalcifications), coarse internal calcifications, and peripheral (rim) calcifications (complete or incomplete), with different levels of associat...",
+        "date": "13/08/2026",
+        "link": "https://doi.org/10.1177/10507256261477161",
+        "pub_types": [
+          "Journal Article",
+          "Multicenter Study"
+        ],
+        "journal": "Thyroid",
+        "journal_full": "Thyroid",
+        "color": "#117864"
+      },
+      {
+        "pmid": "42580849",
+        "title": "Reply to: When Guidelines Meet Reality: Implementing the 2025 ATA Recommendations for Differentiated Thyroid Cancer in Limited-Resource Settings.",
+        "authors": "Ho AS, Ringel MD, Sosa JA et al.",
+        "abstract": "",
+        "date": "11/08/2026",
+        "link": "https://doi.org/10.1177/10507256261478396",
+        "pub_types": [
+          "Letter"
+        ],
+        "journal": "Thyroid",
+        "journal_full": "Thyroid",
+        "color": "#117864"
+      }
+    ]
+  },
+  "Diabetes Care": {
+    "name": "Diabetes Care",
+    "short": "Diabetes Care",
+    "color": "#c0392b",
+    "articles": [
+      {
+        "pmid": "42825450",
+        "title": "Management of Type 2 Diabetes, 2026. A Consensus Report by the American Diabetes Association (ADA) and the European Association for the Study of Diabetes (EASD).",
+        "authors": "Davies MJ, Aroda VR, Bajaj M et al.",
+        "abstract": "The American Diabetes Association and the European Association for the Study of Diabetes convened a panel to update the consensus statement on the management of type 2 diabetes in nonpregnant adults, published since 2006 and last updated in 2022. The target audience is the multidisciplinary healt...",
+        "date": "02/10/2026",
+        "link": "https://doi.org/10.2337/dci26-0141",
+        "pub_types": [
+          "Journal Article"
+        ],
+        "journal": "Diabetes Care",
+        "journal_full": "Diabetes Care",
+        "color": "#c0392b"
+      },
+      {
+        "pmid": "42821443",
+        "title": "Genetic Susceptibility in Relative Maternal Protection From Type 1 Diabetes.",
+        "authors": "Slack SD, Venkatesh N, Ridoux SE et al.",
+        "abstract": "Type 1 diabetes is half as common in offspring of mothers versus fathers with type 1 diabetes. We investigated whether selective loss of fetuses with high genetic risk during type 1 diabetes pregnancy explains this relative protection. In 6,942 live births in The Environmental Determinants of Dia...",
+        "date": "01/10/2026",
+        "link": "https://doi.org/10.2337/dc26-1524",
+        "pub_types": [
+          "Journal Article"
+        ],
+        "journal": "Diabetes Care",
+        "journal_full": "Diabetes Care",
+        "color": "#c0392b"
+      },
+      {
+        "pmid": "42809017",
+        "title": "Increased Risk of Obstructive Sleep Apnea and Poor Sleep Quality Among Older Adults With Type 1 Diabetes: The DCCT/EDIC Study.",
+        "authors": "Martin CL, Bott M, Herman WH et al.",
+        "abstract": "To investigate the prevalence of sleep problems and their risk factors among older adults with type 1 diabetes. Participants with type 1 diabetes in the Diabetes Control and Complications Trial/Epidemiology of Diabetes Interventions and Complications (DCCT/EDIC) study completed validated question...",
+        "date": "29/09/2026",
+        "link": "https://doi.org/10.2337/dc26-1678",
+        "pub_types": [
+          "Journal Article"
+        ],
+        "journal": "Diabetes Care",
+        "journal_full": "Diabetes Care",
+        "color": "#c0392b"
+      },
+      {
+        "pmid": "42808984",
+        "title": "Insulin Dose-Adjusted Hemoglobin A1c Has Suboptimal Performance for Identifying C-Peptide-Defined Partial Remission: The SEARCH for Diabetes in Youth Study.",
+        "authors": "Ferm ML, Huang X, Minard CG et al.",
+        "abstract": "Insulin dose-adjusted hemoglobin A1c (IDAA1c = HbA1c [%] + [4 × total daily dose in units/kg/day]) ≤9 is widely used to define partial remission in pediatric type 1 diabetes and as an eligibility criterion or outcome in disease-modifying therapy trials. However, it has not been validated in U.S. ...",
+        "date": "29/09/2026",
+        "link": "https://doi.org/10.2337/dc26-1313",
+        "pub_types": [
+          "Journal Article"
+        ],
+        "journal": "Diabetes Care",
+        "journal_full": "Diabetes Care",
+        "color": "#c0392b"
+      },
+      {
+        "pmid": "42803380",
+        "title": "The Insulin Resistance Mosaic: Defect, Defense, or Both? A Perspective on What Insulin Resistance Means and Whether It Should be Treated.",
+        "authors": "James DE",
+        "abstract": "Insulin resistance is conventionally framed as a pathological defect in insulin action that contributes to type 2 diabetes and related metabolic disease and should therefore be identified and reversed. The comprehensive review by Gastaldelli and colleagues highlights a more complicated reality: i...",
+        "date": "28/09/2026",
+        "link": "https://doi.org/10.2337/dci26-0146",
+        "pub_types": [
+          "Journal Article"
+        ],
+        "journal": "Diabetes Care",
+        "journal_full": "Diabetes Care",
+        "color": "#c0392b"
+      },
+      {
+        "pmid": "42803375",
+        "title": "Insulin Resistance in the 21st Century: New Takes on an Old Problem-2025 Diabetes, Diabetes Care, and Diabetologia Expert Forum.",
+        "authors": "Gastaldelli A, Choi E, Conde-Knape K et al.",
+        "abstract": "Insulin resistance is a hallmark of type 2 diabetes and several other metabolic diseases. However, efforts to improve insulin resistance are hindered by the biological complexity inherent to insulin action, as well as conceptual and methodological limitations to date. In September 2025, the edito...",
+        "date": "28/09/2026",
+        "link": "https://doi.org/10.2337/dci26-0142",
+        "pub_types": [
+          "Journal Article"
+        ],
+        "journal": "Diabetes Care",
+        "journal_full": "Diabetes Care",
+        "color": "#c0392b"
+      },
+      {
+        "pmid": "42782208",
+        "title": "Automated Insulin Delivery for Pregnancy With Type 1 Diabetes: A Call to Action.",
+        "authors": "",
+        "abstract": "Type 1 diabetes (T1D) requires intensive glycemic management in pregnancy with insulin to achieve pregnancy-specific glycemic targets and avoid serious maternal and perinatal morbidity. Glycemic targets for pregnancy, which are lower than those outside pregnancy, are extremely challenging to achi...",
+        "date": "24/09/2026",
+        "link": "https://doi.org/10.2337/dci26-0045",
+        "pub_types": [
+          "Journal Article"
+        ],
+        "journal": "Diabetes Care",
+        "journal_full": "Diabetes Care",
+        "color": "#c0392b"
+      },
+      {
+        "pmid": "42782193",
+        "title": "Predictors of Peak Body Weight Loss With Semaglutide in the SELECT Trial.",
+        "authors": "Lingvay I, Kushner RF, Kaul U et al.",
+        "abstract": "To evaluate whether clinically available baseline characteristics predict peak percentage body weight loss (%BWL) achieved with chronic use of semaglutide. SELECT (Semaglutide Effects on Cardiovascular Outcomes in People with Overweight or Obesity Trial) evaluated the cardiovascular benefits of s...",
+        "date": "24/09/2026",
+        "link": "https://doi.org/10.2337/dc26-0784",
+        "pub_types": [
+          "Journal Article"
+        ],
+        "journal": "Diabetes Care",
+        "journal_full": "Diabetes Care",
+        "color": "#c0392b"
+      },
+      {
+        "pmid": "42776184",
+        "title": "Effective Sulfonylurea-Sparing First-Line HNF4A-MODY Therapy With Sodium-Dependent Glucose Cotransporter 2 Inhibitors.",
+        "authors": "Philbey C",
+        "abstract": "",
+        "date": "23/09/2026",
+        "link": "https://doi.org/10.2337/dc26-1631",
+        "pub_types": [
+          "Letter"
+        ],
+        "journal": "Diabetes Care",
+        "journal_full": "Diabetes Care",
+        "color": "#c0392b"
+      },
+      {
+        "pmid": "42770563",
+        "title": "An International Position Statement on Practical Approaches for Inpatient Continuous Glucose Monitoring, Insulin Pumps, and Automated Insulin Delivery Systems in Adults.",
+        "authors": "Olsen MT, Spanakis EK, Thabit H et al.",
+        "abstract": "There is an urgent and unmet need for a practical clinical guideline addressing the use of continuous glucose monitoring (CGM), insulin pumps, and automated insulin delivery (AID) systems in hospital settings. The goal with this position statement is to facilitate effective and safe use of these ...",
+        "date": "22/09/2026",
+        "link": "https://doi.org/10.2337/dci26-0091",
+        "pub_types": [
+          "Journal Article"
+        ],
+        "journal": "Diabetes Care",
+        "journal_full": "Diabetes Care",
+        "color": "#c0392b"
+      }
+    ]
+  },
+  "EJE": {
+    "name": "European Journal of Endocrinology",
+    "short": "EJE",
+    "color": "#2874a6",
+    "articles": [
+      {
+        "pmid": "42811622",
+        "title": "Second Primary Malignancy Risk Following Radioactive Iodine Therapy for Thyroid Cancer: A Population-based Matched Cohort Study in Taiwan.",
+        "authors": "Lin SF, Lu YL, Wu CL et al.",
+        "abstract": "To investigate the association between radioactive iodine (RAI) treatment and the subsequent risk of second primary malignancies (SPMs) in thyroid cancer patients. Population-based propensity score-matched retrospective cohort study. Data were obtained from the National Health Insurance Research ...",
+        "date": "30/09/2026",
+        "link": "https://doi.org/10.1093/ejendo/lvag187",
+        "pub_types": [
+          "Journal Article"
+        ],
+        "journal": "EJE",
+        "journal_full": "European Journal of Endocrinology",
+        "color": "#2874a6"
+      },
+      {
+        "pmid": "42789535",
+        "title": "Off-label palopegteriparatide for severe pediatric postsurgical hypocalcemia.",
+        "authors": "Pérez Reyes P, Rebollo Román Á, Alhambra Expósito MR et al.",
+        "abstract": "Hypoparathyroidism is the most common complication after total thyroidectomy and may be particularly severe in pediatric Graves' disease. We report the case of a 14-year-old boy with Graves' disease who developed profound postoperative hypocalcemia after total thyroidectomy, with serum calcium 5....",
+        "date": "25/09/2026",
+        "link": "https://doi.org/10.1093/ejendo/lvag186",
+        "pub_types": [
+          "Journal Article"
+        ],
+        "journal": "EJE",
+        "journal_full": "European Journal of Endocrinology",
+        "color": "#2874a6"
+      },
+      {
+        "pmid": "42789530",
+        "title": "Environmental pollution is associated with poorer survival in patients with adrenocortical carcinoma: findings from a national cohort study in Italy.",
+        "authors": "Puglisi S, Calabrese A, Messina E et al.",
+        "abstract": "The impact of environmental pollution on adrenocortical carcinoma (ACC) remains largely unexplored. Although a few studies have assessed the incidence of ACC in polluted areas, no data are available on clinical outcomes. We carried out a retrospective multicentre cohort study in adult patients wi...",
+        "date": "25/09/2026",
+        "link": "https://doi.org/10.1093/ejendo/lvag184",
+        "pub_types": [
+          "Journal Article"
+        ],
+        "journal": "EJE",
+        "journal_full": "European Journal of Endocrinology",
+        "color": "#2874a6"
+      },
+      {
+        "pmid": "42779506",
+        "title": "Transition to once-weekly growth hormone in paediatric isolated growth hormone deficiency: A real-world experience.",
+        "authors": "Sotiriou G, Moutafi M, Triantafyllou P et al.",
+        "abstract": "To evaluate real-world auxological and biochemical outcomes in children and adolescents with isolated growth hormone deficiency (GHD) who transitioned from daily recombinant human growth hormone to once-weekly somatrogon. Single-centre retrospective observational study. Seventy-three paediatric p...",
+        "date": "24/09/2026",
+        "link": "https://doi.org/10.1093/ejendo/lvag185",
+        "pub_types": [
+          "Journal Article"
+        ],
+        "journal": "EJE",
+        "journal_full": "European Journal of Endocrinology",
+        "color": "#2874a6"
+      },
+      {
+        "pmid": "42773730",
+        "title": "Pituitary adenomas in older patients - approaches, challenges and future directions.",
+        "authors": "Urwyler SA, Esposito D, Fountas A et al.",
+        "abstract": "Several pituitary adenomas are diagnosed at an old age. Over the decades, the increase in life expectancy has led to fundamental changes in the age structure of the society. As a result of this, the number of elderly patients newly diagnosed or living with a pituitary adenoma is increasing. Clini...",
+        "date": "23/09/2026",
+        "link": "https://doi.org/10.1093/ejendo/lvag183",
+        "pub_types": [
+          "Journal Article"
+        ],
+        "journal": "EJE",
+        "journal_full": "European Journal of Endocrinology",
+        "color": "#2874a6"
+      },
+      {
+        "pmid": "42766813",
+        "title": "Multimodal Imaging for Adrenal Tumor Characterization: Clinical Impact of the 2023 European Guidelines - A Single-Center Retrospective Study.",
+        "authors": "Lutz E, Zaragori T, Nominé-Criqui C et al.",
+        "abstract": "Adrenal lesions are becoming increasingly common with the advent of abdominal imaging. Although mostly benign and nonfunctional, some cases may be malignant or secretory and justify adrenalectomy. The 2023 European guidelines propose a more conservative approach (focused on simple radiological cr...",
+        "date": "21/09/2026",
+        "link": "https://doi.org/10.1093/ejendo/lvag179",
+        "pub_types": [
+          "Journal Article"
+        ],
+        "journal": "EJE",
+        "journal_full": "European Journal of Endocrinology",
+        "color": "#2874a6"
+      }
+    ]
+  },
+  "Lancet D&E": {
+    "name": "The Lancet Diabetes & Endocrinology",
+    "short": "Lancet D&E",
+    "color": "#d35400",
+    "articles": [
+      {
+        "pmid": "42822482",
+        "title": "IL-2 and immunoregulatory therapies in newly diagnosed type 1 diabetes.",
+        "authors": "Long SA, Speake C",
+        "abstract": "",
+        "date": "01/10/2026",
+        "link": "https://doi.org/10.1016/S2213-8587(26)00236-6",
+        "pub_types": [
+          "Journal Article"
+        ],
+        "journal": "Lancet D&E",
+        "journal_full": "The Lancet Diabetes & Endocrinology",
+        "color": "#d35400"
+      },
+      {
+        "pmid": "42822481",
+        "title": "Diabetes and the role of primary care: a global perspective.",
+        "authors": "Kar P, Sathanapally H, Aschner P et al.",
+        "abstract": "The global prevalence of diabetes is rising rapidly, with the steepest increases and greatest unmet need occurring in low-income and middle-income countries. Despite strong evidence that early detection and continuous management reduce morbidity and mortality, many health systems face persistent ...",
+        "date": "01/10/2026",
+        "link": "https://doi.org/10.1016/S2213-8587(26)00214-7",
+        "pub_types": [
+          "Journal Article",
+          "Review"
+        ],
+        "journal": "Lancet D&E",
+        "journal_full": "The Lancet Diabetes & Endocrinology",
+        "color": "#d35400"
+      },
+      {
+        "pmid": "42822480",
+        "title": "Efficacy and safety of low-dose IL-2 in people with newly diagnosed type 1 diabetes (DIABIL-2): a double-blind, multicentre, randomised, placebo-controlled, phase 2b trial.",
+        "authors": "Rosenzwajg M, Hartemann A, Halbron M et al.",
+        "abstract": "Type 1 diabetes results from immune-mediated destruction of pancreatic β cells, driven partly by regulatory T-cell (Treg) insufficiency. We previously showed that low-dose interleukin-2 (IL-2) selectively activates Tregs in people with type 1 diabetes. We aimed to evaluate the efficacy of low-dos...",
+        "date": "01/10/2026",
+        "link": "https://doi.org/10.1016/S2213-8587(26)00191-9",
+        "pub_types": [
+          "Journal Article"
+        ],
+        "journal": "Lancet D&E",
+        "journal_full": "The Lancet Diabetes & Endocrinology",
+        "color": "#d35400"
+      },
+      {
+        "pmid": "42815503",
+        "title": "Trends in prevalence of type 2 diabetes and intermediate hyperglycaemia in Mauritius from 1987 to 2021 based on results from the oral glucose tolerance test: a repeated cross-sectional study.",
+        "authors": "Tuomilehto J, Kowlessur S, Zimmet P et al.",
+        "abstract": "Data on national trends in the prevalence of type 2 diabetes and intermediate hyperglycaemia using the oral glucose tolerance test (OGTT) are scarce. We aimed to identify trends in the prevalence of type 2 diabetes and intermediate hyperglycaemia in Mauritius, a country that has monitored prevale...",
+        "date": "30/09/2026",
+        "link": "https://doi.org/10.1016/S2213-8587(26)00127-0",
+        "pub_types": [
+          "Journal Article"
+        ],
+        "journal": "Lancet D&E",
+        "journal_full": "The Lancet Diabetes & Endocrinology",
+        "color": "#d35400"
+      },
+      {
+        "pmid": "42815502",
+        "title": "Safeguarding paediatric metabolic health.",
+        "authors": "The Lancet Diabetes Endocrinology",
+        "abstract": "",
+        "date": "30/09/2026",
+        "link": "https://doi.org/10.1016/S2213-8587(26)00255-X",
+        "pub_types": [
+          "Editorial"
+        ],
+        "journal": "Lancet D&E",
+        "journal_full": "The Lancet Diabetes & Endocrinology",
+        "color": "#d35400"
+      },
+      {
+        "pmid": "42815501",
+        "title": "What Mauritius teaches us about diabetes surveillance.",
+        "authors": "Mohamed SF, Kengne AP",
+        "abstract": "",
+        "date": "30/09/2026",
+        "link": "https://doi.org/10.1016/S2213-8587(26)00159-2",
+        "pub_types": [
+          "Journal Article"
+        ],
+        "journal": "Lancet D&E",
+        "journal_full": "The Lancet Diabetes & Endocrinology",
+        "color": "#d35400"
+      },
+      {
+        "pmid": "42810355",
+        "title": "Petrelintide, a human amylin analogue for the treatment of obesity (ZUPREME 1): a randomised, double-blind, placebo-controlled, phase 2 trial.",
+        "authors": "Garvey WT, Ard J, Connery L et al.",
+        "abstract": "Petrelintide is a novel, long-acting amylin analogue being developed for long-term treatment of obesity, leveraging a mechanism of action distinct from incretin-based treatments. This phase 2 trial aimed to evaluate the efficacy and safety of once-weekly petrelintide versus placebo in people with...",
+        "date": "29/09/2026",
+        "link": "https://doi.org/10.1016/S2213-8587(26)00213-5",
+        "pub_types": [
+          "Journal Article"
+        ],
+        "journal": "Lancet D&E",
+        "journal_full": "The Lancet Diabetes & Endocrinology",
+        "color": "#d35400"
+      },
+      {
+        "pmid": "42810354",
+        "title": "Disease modification outcomes in type 2 diabetes: a modified Delphi.",
+        "authors": "Khunti K, Funnell MP, Highton PJ et al.",
+        "abstract": "Type 2 diabetes is a heterogeneous, progressive chronic condition for which management has traditionally focused on glycaemic control and cardiovascular risk factors, rather than focusing on altering long-term disease trajectory. Increasing evidence indicates that progression and complications mi...",
+        "date": "29/09/2026",
+        "link": "https://doi.org/10.1016/S2213-8587(26)00243-3",
+        "pub_types": [
+          "Journal Article",
+          "Review"
+        ],
+        "journal": "Lancet D&E",
+        "journal_full": "The Lancet Diabetes & Endocrinology",
+        "color": "#d35400"
+      },
+      {
+        "pmid": "42810353",
+        "title": "Petrelintide and the evolving role of amylin agonism in obesity.",
+        "authors": "Madsbad S, Holst JJ",
+        "abstract": "",
+        "date": "29/09/2026",
+        "link": "https://doi.org/10.1016/S2213-8587(26)00216-0",
+        "pub_types": [
+          "Journal Article"
+        ],
+        "journal": "Lancet D&E",
+        "journal_full": "The Lancet Diabetes & Endocrinology",
+        "color": "#d35400"
+      },
+      {
+        "pmid": "42790437",
+        "title": "New genomic understanding and challenges in clinical care of Turner syndrome.",
+        "authors": "Gravholt CH, Balle CM, Hasselholm EB et al.",
+        "abstract": "Turner syndrome is a sex chromosome abnormality in female individuals characterised by the complete or partial loss of one X chromosome in all or some cells. It is a rare genetic condition occurring in approximately 50 per 100 000 (1 in 2000) female individuals. Turner syndrome is associated with...",
+        "date": "25/09/2026",
+        "link": "https://doi.org/10.1016/S2213-8587(26)00192-0",
+        "pub_types": [
+          "Journal Article",
+          "Review"
+        ],
+        "journal": "Lancet D&E",
+        "journal_full": "The Lancet Diabetes & Endocrinology",
+        "color": "#d35400"
+      }
+    ]
+  },
+  "Nat Rev Endocrinol": {
+    "name": "Nature Reviews Endocrinology",
+    "short": "Nat Rev Endocrinol",
+    "color": "#8e44ad",
+    "articles": [
+      {
+        "pmid": "42827187",
+        "title": "Effects of weight cycling in the presence and absence of obesity.",
+        "authors": "Magkos F, Stefan N",
+        "abstract": "",
+        "date": "02/10/2026",
+        "link": "https://doi.org/10.1038/s41574-026-01311-3",
+        "pub_types": [
+          "Journal Article"
+        ],
+        "journal": "Nat Rev Endocrinol",
+        "journal_full": "Nature Reviews Endocrinology",
+        "color": "#8e44ad"
+      },
+      {
+        "pmid": "42816590",
+        "title": "Author Correction: Diagnosis and management of Silver-Russell syndrome: second international consensus statement.",
+        "authors": "Wakeling E, Davies JH, Giabicani E et al.",
+        "abstract": "",
+        "date": "30/09/2026",
+        "link": "https://doi.org/10.1038/s41574-026-01313-1",
+        "pub_types": [
+          "Published Erratum"
+        ],
+        "journal": "Nat Rev Endocrinol",
+        "journal_full": "Nature Reviews Endocrinology",
+        "color": "#8e44ad"
+      },
+      {
+        "pmid": "42791390",
+        "title": "Adipocyte-derived oxylipin suppresses breast cancer growth.",
+        "authors": "Greenhill C",
+        "abstract": "",
+        "date": "25/09/2026",
+        "link": "https://doi.org/10.1038/s41574-026-01310-4",
+        "pub_types": [
+          "Journal Article"
+        ],
+        "journal": "Nat Rev Endocrinol",
+        "journal_full": "Nature Reviews Endocrinology",
+        "color": "#8e44ad"
+      },
+      {
+        "pmid": "42778655",
+        "title": "Diagnosis and management of Silver-Russell syndrome: second international consensus statement.",
+        "authors": "Wakeling E, Davies JH, Giabicani E et al.",
+        "abstract": "This international Consensus Statement updates 2016 guidelines for diagnosis and management of individuals with Silver-Russell syndrome (SRS), using a Delphi-like process to reach agreement through iterative expert discussions, based on published data and/or expert opinion. Individuals referred w...",
+        "date": "23/09/2026",
+        "link": "https://doi.org/10.1038/s41574-026-01303-3",
+        "pub_types": [
+          "Journal Article",
+          "Review"
+        ],
+        "journal": "Nat Rev Endocrinol",
+        "journal_full": "Nature Reviews Endocrinology",
+        "color": "#8e44ad"
+      },
+      {
+        "pmid": "42768096",
+        "title": "The causes of cachexia: key signals and the brain.",
+        "authors": "Daly A, Yin SL, Coll AP",
+        "abstract": "Cachexia is a multisystem, complex disorder of body weight and body composition characterized by a relentless, non-resolving wasting of metabolic reserve that, although long recognized and described, continues to elude effective treatment. A continued focus on central nervous system pathways as k...",
+        "date": "21/09/2026",
+        "link": "https://doi.org/10.1038/s41574-026-01302-4",
+        "pub_types": [
+          "Journal Article",
+          "Review"
+        ],
+        "journal": "Nat Rev Endocrinol",
+        "journal_full": "Nature Reviews Endocrinology",
+        "color": "#8e44ad"
+      },
+      {
+        "pmid": "42618736",
+        "title": "Appetite-suppressing effects of GIPR agonism and antagonism work through different brain regions.",
+        "authors": "Tysoe O",
+        "abstract": "",
+        "date": "10/2026",
+        "link": "https://doi.org/10.1038/s41574-026-01298-x",
+        "pub_types": [
+          "Journal Article"
+        ],
+        "journal": "Nat Rev Endocrinol",
+        "journal_full": "Nature Reviews Endocrinology",
+        "color": "#8e44ad"
+      },
+      {
+        "pmid": "42601512",
+        "title": "mRNA-LNP therapeutics for obesity: weight loss with metabolic repair.",
+        "authors": "Liao J, Farbiak L, Siegwart DJ et al.",
+        "abstract": "",
+        "date": "10/2026",
+        "link": "https://doi.org/10.1038/s41574-026-01297-y",
+        "pub_types": [
+          "Journal Article"
+        ],
+        "journal": "Nat Rev Endocrinol",
+        "journal_full": "Nature Reviews Endocrinology",
+        "color": "#8e44ad"
+      },
+      {
+        "pmid": "42595894",
+        "title": "Leadership for the postdoctoral to independent investigator transition.",
+        "authors": "de Assis LVM, Blay RM, Coles M et al.",
+        "abstract": "",
+        "date": "10/2026",
+        "link": "https://doi.org/10.1038/s41574-026-01294-1",
+        "pub_types": [
+          "Journal Article"
+        ],
+        "journal": "Nat Rev Endocrinol",
+        "journal_full": "Nature Reviews Endocrinology",
+        "color": "#8e44ad"
+      },
+      {
+        "pmid": "42533135",
+        "title": "Paracrine signalling in thermogenesis.",
+        "authors": "Greenhill C",
+        "abstract": "",
+        "date": "10/2026",
+        "link": "https://doi.org/10.1038/s41574-026-01292-3",
+        "pub_types": [
+          "Journal Article"
+        ],
+        "journal": "Nat Rev Endocrinol",
+        "journal_full": "Nature Reviews Endocrinology",
+        "color": "#8e44ad"
+      },
+      {
+        "pmid": "42521790",
+        "title": "Local catecholamine catabolism blunts lipolysis in ageing adipose tissue.",
+        "authors": "Khalaf F",
+        "abstract": "",
+        "date": "10/2026",
+        "link": "https://doi.org/10.1038/s41574-026-01290-5",
+        "pub_types": [
+          "Journal Article"
+        ],
+        "journal": "Nat Rev Endocrinol",
+        "journal_full": "Nature Reviews Endocrinology",
+        "color": "#8e44ad"
+      }
+    ]
+  }
+}
