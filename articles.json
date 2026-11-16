@@ -1,0 +1,689 @@
+{
+  "JCEM": {
+    "name": "The Journal of Clinical Endocrinology & Metabolism",
+    "short": "JCEM",
+    "color": "#1a5276",
+    "articles": [
+      {
+        "pmid": "43037161",
+        "title": "Letter to the editor from Boguszewski and Van Der Lely: \"Cancer risk in acromegaly: reassessing the evidence and impact of biochemical control\".",
+        "authors": "Boguszewski CL, van der Lely AJ",
+        "abstract": "",
+        "date": "16/11/2026",
+        "link": "https://doi.org/10.1210/clinem/dgag451",
+        "pub_types": [
+          "Journal Article"
+        ],
+        "journal": "JCEM",
+        "journal_full": "The Journal of Clinical Endocrinology & Metabolism",
+        "color": "#1a5276"
+      },
+      {
+        "pmid": "43021657",
+        "title": "Estimating the summer 25-hydroxyvitamin D concentration needed to avoid winter vitamin D deficiency in Australia.",
+        "authors": "Tran V, Duarte Romero BL, Clarke M et al.",
+        "abstract": "Australian guidelines recommend an end-of-summer concentration of at least 60 nmol/L to avoid winter vitamin D deficiency. To estimate (1) the risk of end-of-winter vitamin D deficiency (25-hydroxyvitamin D concentration [25(OH)D] < 50 nmol/L) according to end-of-summer 25(OH)D concentrations and...",
+        "date": "13/11/2026",
+        "link": "https://doi.org/10.1210/clinem/dgag402",
+        "pub_types": [
+          "Journal Article"
+        ],
+        "journal": "JCEM",
+        "journal_full": "The Journal of Clinical Endocrinology & Metabolism",
+        "color": "#1a5276"
+      },
+      {
+        "pmid": "43021654",
+        "title": "Correction to \"Classification of glucose profile in Japanese patients with type 1 diabetes and its association with complications\".",
+        "authors": "",
+        "abstract": "",
+        "date": "13/11/2026",
+        "link": "https://doi.org/10.1210/clinem/dgag410",
+        "pub_types": [
+          "Published Erratum"
+        ],
+        "journal": "JCEM",
+        "journal_full": "The Journal of Clinical Endocrinology & Metabolism",
+        "color": "#1a5276"
+      },
+      {
+        "pmid": "43021445",
+        "title": "Glucose variability and semen quality in young adults with type 1 diabetes using continuous glucose monitoring.",
+        "authors": "Longo M, Angelino S, Maio A et al.",
+        "abstract": "Type 1 diabetes mellitus (T1DM) has been associated with impaired male reproductive health, but the impact of continuous glucose monitoring (CGM) metrics, particularly glycemic variability, on semen quality remains unclear. This cross-sectional study included 88 men with T1DM followed at the Univ...",
+        "date": "11/11/2026",
+        "link": "https://doi.org/10.1210/clinem/dgag453",
+        "pub_types": [
+          "Journal Article"
+        ],
+        "journal": "JCEM",
+        "journal_full": "The Journal of Clinical Endocrinology & Metabolism",
+        "color": "#1a5276"
+      },
+      {
+        "pmid": "43021438",
+        "title": "Adipose Tissue Regulation of Vitamin B12 Uptake and the CD320 Receptor-TCN2 Transport Axis in Pregnancy.",
+        "authors": "Samavat J, Boachie J, McTernan PG et al.",
+        "abstract": "Vitamin B12 (B12) is essential for cellular metabolism, with uptake mediated by transcobalamin II (TCN2) and its receptor CD320. Although B12 deficiency is associated with adverse metabolic outcomes, including dyslipidaemia, the role of adipose tissue in sensing and adapting to altered B12 availa...",
+        "date": "11/11/2026",
+        "link": "https://doi.org/10.1210/clinem/dgag458",
+        "pub_types": [
+          "Journal Article"
+        ],
+        "journal": "JCEM",
+        "journal_full": "The Journal of Clinical Endocrinology & Metabolism",
+        "color": "#1a5276"
+      },
+      {
+        "pmid": "43017908",
+        "title": "Serum 25(OH)D and diabetes risk in adults with prediabetes: evidence, potential mechanisms, and implications.",
+        "authors": "Dawson-Hughes B, LeBlanc E, Pittas AG",
+        "abstract": "Correcting vitamin D deficiency to reach 25-hydroxyvitamin D levels in the replete range (≥ 20 ng/mL, as defined by the National Academy of Medicine) improves insulin secretion and sensitivity. Emerging evidence indicates that vitamin D may have a more extensive role in reducing risk of type 2 di...",
+        "date": "12/11/2026",
+        "link": "https://doi.org/10.1210/clinem/dgag460",
+        "pub_types": [
+          "Journal Article"
+        ],
+        "journal": "JCEM",
+        "journal_full": "The Journal of Clinical Endocrinology & Metabolism",
+        "color": "#1a5276"
+      },
+      {
+        "pmid": "43017889",
+        "title": "Clinical Features and Management Framework for Refractory Hypophysitis: A Cohort Study.",
+        "authors": "Zhai X, Xu Z, Xu T et al.",
+        "abstract": "Glucocorticoid (GC) therapy is the cornerstone therapy for primary autoimmune hypophysitis (PAH), yet treatment failure and relapse are common. The concept and optimal management of \"refractory\" PAH remain undefined. To define the clinical entity of refractory PAH, identify its distinguishing fea...",
+        "date": "12/11/2026",
+        "link": "https://doi.org/10.1210/clinem/dgag434",
+        "pub_types": [
+          "Journal Article"
+        ],
+        "journal": "JCEM",
+        "journal_full": "The Journal of Clinical Endocrinology & Metabolism",
+        "color": "#1a5276"
+      },
+      {
+        "pmid": "43006835",
+        "title": "Testosterone prescribing and persistence among adult females: a new-user cohort study.",
+        "authors": "Jorgensen SCJ, McClure DL",
+        "abstract": "Testosterone use among females has risen recently, partly fueled by consumer-directed marketing for a wide range of unsupported indications. Hypoactive sexual desire disorder (HSDD) in postmenopausal females remains the only evidence-based indication. To describe characteristics of females initia...",
+        "date": "10/11/2026",
+        "link": "https://doi.org/10.1210/clinem/dgag444",
+        "pub_types": [
+          "Journal Article"
+        ],
+        "journal": "JCEM",
+        "journal_full": "The Journal of Clinical Endocrinology & Metabolism",
+        "color": "#1a5276"
+      },
+      {
+        "pmid": "43006778",
+        "title": "Single-session radiosurgery for Cushing disease after failed resection: a retrospective single-center cohort study.",
+        "authors": "Hajikarimloo B, Tos SM, Shinya Y et al.",
+        "abstract": "Cushing disease (CD) from an adrenocorticotropic hormone-secreting pituitary adenoma causes substantial morbidity when hypercortisolism persists or recurs after transsphenoidal surgery (TSS). To define endocrine control, radiographic response, toxicity, and predictors after single-session Gamma K...",
+        "date": "10/11/2026",
+        "link": "https://doi.org/10.1210/clinem/dgag369",
+        "pub_types": [
+          "Journal Article"
+        ],
+        "journal": "JCEM",
+        "journal_full": "The Journal of Clinical Endocrinology & Metabolism",
+        "color": "#1a5276"
+      },
+      {
+        "pmid": "43004931",
+        "title": "Noninvasive serum steroid signatures of lateralization and coexisting cortisol excess in primary aldosteronism.",
+        "authors": "Park SS, Noh J, Jung S et al.",
+        "abstract": "Adrenal venous sampling (AVS) remains the gold standard for primary aldosteronism (PA) subtyping but is invasive and technically demanding. We investigated whether peripheral steroid profiles could serve as a noninvasive tool for PA subtyping, characterizing the presence of coexisting mild autono...",
+        "date": "10/11/2026",
+        "link": "https://doi.org/10.1210/clinem/dgag454",
+        "pub_types": [
+          "Journal Article"
+        ],
+        "journal": "JCEM",
+        "journal_full": "The Journal of Clinical Endocrinology & Metabolism",
+        "color": "#1a5276"
+      }
+    ]
+  },
+  "Endocr Rev": {
+    "name": "Endocrine Reviews",
+    "short": "Endocr Rev",
+    "color": "#6c3483",
+    "articles": [
+      {
+        "pmid": "43025976",
+        "title": "Immunotherapy mediated pituitary toxicity: current knowledge and priorities for care.",
+        "authors": "Hayes AG, Tsang VHM, McCormack AI et al.",
+        "abstract": "Immune checkpoint inhibitor related pituitary toxicity (pituitary irAE) remains a relatively common complication of treatment which has transformed prognosis in several solid organ malignancies. While it may present with clear and clinically significant adrenal insufficiency, diagnostic uncertain...",
+        "date": "14/11/2026",
+        "link": "https://doi.org/10.1210/endrev/bnag041",
+        "pub_types": [
+          "Journal Article"
+        ],
+        "journal": "Endocr Rev",
+        "journal_full": "Endocrine Reviews",
+        "color": "#6c3483"
+      },
+      {
+        "pmid": "42989433",
+        "title": "Glucagon-like Peptide-1 Receptor Agonists and Thyroid Cancer: Review of Preclinical and Human Data.",
+        "authors": "Braunstein EW, Braunstein GD",
+        "abstract": "Preclinical rodent studies showing a dose-dependent increase in thyroid C-cell hyperplasia and neoplasia with Glucagon-like Peptide-1 Receptor Agonists (GLP-1RAs), led the United States Federal Drug Administration to require a boxed warning contraindicating GLP-1RAs for patients with a personal o...",
+        "date": "06/11/2026",
+        "link": "https://doi.org/10.1210/endrev/bnag044",
+        "pub_types": [
+          "Journal Article"
+        ],
+        "journal": "Endocr Rev",
+        "journal_full": "Endocrine Reviews",
+        "color": "#6c3483"
+      }
+    ]
+  },
+  "Thyroid": {
+    "name": "Thyroid",
+    "short": "Thyroid",
+    "color": "#117864",
+    "articles": [
+      {
+        "pmid": "43018984",
+        "title": "Artificial Intelligence Models to Predict Recurrence in Patients with Differentiated Thyroid Cancer: A PROBAST + AI Systematic Review of Clinical Applicability.",
+        "authors": "Solis-Pazmino P, Samaniego AF, Golbert L et al.",
+        "abstract": "Differentiated thyroid cancer (DTC) generally carries an excellent prognosis, yet recurrence occurs in up to 8-9% of patients. Artificial intelligence (AI) models are increasingly proposed to predict DTC recurrence; however, their methodological quality and clinical readiness are poorly defined. ...",
+        "date": "12/11/2026",
+        "link": "https://doi.org/10.1177/10507256261504546",
+        "pub_types": [
+          "Journal Article",
+          "Review"
+        ],
+        "journal": "Thyroid",
+        "journal_full": "Thyroid",
+        "color": "#117864"
+      },
+      {
+        "pmid": "43010676",
+        "title": "Comprehensive Thyroid Assessment in a Prospective Japanese Cohort: A Cross-Sectional Baseline Analysis of Thyroid Function, Autoimmunity, and Ultrasonographic Findings.",
+        "authors": "Shimazu-Kuwahara S, Yamauchi I, Kawashima S et al.",
+        "abstract": "Thyroid diseases can be evaluated using multiple modalities, including thyroid function tests, thyroid autoantibodies, ultrasonography, and 18F-fluorodeoxyglucose-positron emission tomography (FDG-PET). However, comprehensive data integrating these modalities in large cohorts remain limited. We a...",
+        "date": "10/11/2026",
+        "link": "https://doi.org/10.1177/10507256261504547",
+        "pub_types": [
+          "Journal Article"
+        ],
+        "journal": "Thyroid",
+        "journal_full": "Thyroid",
+        "color": "#117864"
+      },
+      {
+        "pmid": "43007078",
+        "title": "Lymphopenia and Circulating Biomarker Dynamics Associated with Clinical Outcome and Toxicity in Pazopanib-Treated Radioiodine-Refractory Thyroid Cancer: Exploratory Analyses from the Pazothyr Trial.",
+        "authors": "Rodriguez C, Dalban C, Colombe-Vermorel A et al.",
+        "abstract": "Pazopanib showed clinical activity in progressive radioiodine-refractory differentiated thyroid carcinoma (RAIR-DTC), although its use is limited by substantial toxicity not reduced by intermittent treatment. We aimed to identify biomarkers associated with outcome and treatment-related toxicity i...",
+        "date": "10/11/2026",
+        "link": "https://doi.org/10.1177/10507256261500974",
+        "pub_types": [
+          "Journal Article"
+        ],
+        "journal": "Thyroid",
+        "journal_full": "Thyroid",
+        "color": "#117864"
+      },
+      {
+        "pmid": "42975204",
+        "title": "The Effects of Radioiodine Treatment on Health-Related Quality of Life in Patients Treated for a Differentiated Thyroid Carcinoma: A Systematic Review and Meta-Analysis.",
+        "authors": "Bondet de La Bernardie S, Lussey-Lepoutre C, Buffet C et al.",
+        "abstract": "The incidence of differentiated thyroid carcinoma (DTC) has markedly increased since the 1990s. The patients' health-related quality of life (HRQoL) is an essential outcome to consider, both short- and long-term. After thyroidectomy, treatment generally includes radioiodine therapy (RIT), the imp...",
+        "date": "03/11/2026",
+        "link": "https://doi.org/10.1177/10507256261499230",
+        "pub_types": [
+          "Journal Article",
+          "Review"
+        ],
+        "journal": "Thyroid",
+        "journal_full": "Thyroid",
+        "color": "#117864"
+      },
+      {
+        "pmid": "42969098",
+        "title": "Clinical Outcomes after Deprescribing Thyroid Hormone Therapy: An Updated Systematic Review and Meta-Analysis.",
+        "authors": "Toloza FJK, Ho K, Burgos N et al.",
+        "abstract": "Levothyroxine (LT4) is widely prescribed, often for subclinical hypothyroidism (SCH), despite limited evidence of clinical benefit in patients without overt hypothyroidism. This updated systematic review synthesizes current evidence on biochemical, symptom, and safety outcomes following thyroid h...",
+        "date": "02/11/2026",
+        "link": "https://doi.org/10.1177/10507256261502928",
+        "pub_types": [
+          "Journal Article",
+          "Review"
+        ],
+        "journal": "Thyroid",
+        "journal_full": "Thyroid",
+        "color": "#117864"
+      }
+    ]
+  },
+  "Diabetes Care": {
+    "name": "Diabetes Care",
+    "short": "Diabetes Care",
+    "color": "#c0392b",
+    "articles": [
+      {
+        "pmid": "43012423",
+        "title": "Clinical Guidance for Disease-Modifying Immunotherapy in Children and Adolescents With New-Onset (Stage 3) Type 1 Diabetes.",
+        "authors": "Simmons KM, Weinberg A, Breidbart E et al.",
+        "abstract": "The 2026 U.S. approval of teplizumab, for children and adolescents aged 8-17 years with recently diagnosed stage 3 type 1 diabetes, changes the first weeks after diagnosis. Clinicians must treat hyperglycemia and teach lifelong care skills while considering whether to preserve residual β-cell fun...",
+        "date": "11/11/2026",
+        "link": "https://doi.org/10.2337/dci26-0061",
+        "pub_types": [
+          "Journal Article"
+        ],
+        "journal": "Diabetes Care",
+        "journal_full": "Diabetes Care",
+        "color": "#c0392b"
+      },
+      {
+        "pmid": "43007282",
+        "title": "Transient Cognitive Vulnerability After Hypoglycemia in Adults With Type 1 Diabetes: Evidence From Continuous Glucose Monitoring and Cognitive Ecologic Momentary Assessment.",
+        "authors": "Jayakody O, Hawks Z, Singh S et al.",
+        "abstract": "Adults with type 1 diabetes experience short-term changes in cognitive performance after glycemic events; however, the duration of such cognitive effects remains unclear. We examined whether hypoglycemic and hyperglycemic events and rapid glucose changes were associated with changes in processing...",
+        "date": "10/11/2026",
+        "link": "https://doi.org/10.2337/dc26-1525",
+        "pub_types": [
+          "Journal Article"
+        ],
+        "journal": "Diabetes Care",
+        "journal_full": "Diabetes Care",
+        "color": "#c0392b"
+      },
+      {
+        "pmid": "42986362",
+        "title": "Common Genetic Variants Near SLC2A2 and Glycemic Response to Glimepiride in the GRADE Comparative Effectiveness Clinical Trial.",
+        "authors": "Li JH, Szczerbinski L, Tripputi M et al.",
+        "abstract": "Optimizing second-line therapy for type 2 diabetes remains challenging because of interindividual variability in response. Current treatment selection does not consider personal genetic profiles. To address this gap, we conducted a pharmacogenomic genome-wide association study (GWAS) in a randomi...",
+        "date": "05/11/2026",
+        "link": "https://doi.org/10.2337/dc26-1633",
+        "pub_types": [
+          "Journal Article"
+        ],
+        "journal": "Diabetes Care",
+        "journal_full": "Diabetes Care",
+        "color": "#c0392b"
+      },
+      {
+        "pmid": "42969688",
+        "title": "Longitudinal Changes in Exocrine Biomarkers in Children at Risk of Type 1 Diabetes in the ENDIA Study.",
+        "authors": "Hall M, Penno MAS, Spelman T et al.",
+        "abstract": "The exocrine pancreas is increasingly implicated in type 1 diabetes. Noninvasive biomarkers of exocrine function, fecal elastase-1 (FE-1) and serum immunoreactive trypsin (IRT), may provide early insight into disease pathogenesis. We investigated the temporal relationship between exocrine biomark...",
+        "date": "02/11/2026",
+        "link": "https://doi.org/10.2337/dc26-1627",
+        "pub_types": [
+          "Journal Article"
+        ],
+        "journal": "Diabetes Care",
+        "journal_full": "Diabetes Care",
+        "color": "#c0392b"
+      }
+    ]
+  },
+  "EJE": {
+    "name": "European Journal of Endocrinology",
+    "short": "EJE",
+    "color": "#2874a6",
+    "articles": [
+      {
+        "pmid": "43035847",
+        "title": "Rapid turnover of corticosterone in humans.",
+        "authors": "Nixon M, Mackenzie SD, Devine K et al.",
+        "abstract": "Adrenal insufficiency is primarily treated with replacement of cortisol, which is the predominant circulating glucocorticoid. Human adrenals also secrete corticosterone and emerging evidence suggests this may be a safer glucocorticoid replacement therapy. However, there is scant literature descri...",
+        "date": "16/11/2026",
+        "link": "https://doi.org/10.1093/ejendo/lvag209",
+        "pub_types": [
+          "Journal Article"
+        ],
+        "journal": "EJE",
+        "journal_full": "European Journal of Endocrinology",
+        "color": "#2874a6"
+      },
+      {
+        "pmid": "43035830",
+        "title": "Predicting Treatment Quality in Children and Adolescents with Congenital Adrenal Hyperplasia Using Insulin and Renin.",
+        "authors": "Ammann E, Augsburger PE, Abawi O et al.",
+        "abstract": "Monitoring treatment quality in congenital adrenal hyperplasia (CAH) remains challenging. Current approaches rely predominantly on bone age and serum steroid measurements, which are variable and require expert interpretation. Reliable, accessible biochemical indicators are lacking. To develop and...",
+        "date": "16/11/2026",
+        "link": "https://doi.org/10.1093/ejendo/lvag208",
+        "pub_types": [
+          "Journal Article"
+        ],
+        "journal": "EJE",
+        "journal_full": "European Journal of Endocrinology",
+        "color": "#2874a6"
+      },
+      {
+        "pmid": "43033458",
+        "title": "Interpreting cardiovascular morbidity after acromegaly diagnosis.",
+        "authors": "Liao N, Ye T",
+        "abstract": "",
+        "date": "14/11/2026",
+        "link": "https://doi.org/10.1093/ejendo/lvag200",
+        "pub_types": [
+          "Journal Article"
+        ],
+        "journal": "EJE",
+        "journal_full": "European Journal of Endocrinology",
+        "color": "#2874a6"
+      },
+      {
+        "pmid": "43033455",
+        "title": "A hypodiploid corticotroph pituitary tumor with a germline TP53 variant.",
+        "authors": "Theodorou A, Benhamida J, Richards A et al.",
+        "abstract": "Li-Fraumeni syndrome (LFS), caused by germline TP53 mutations, predisposes to a wide spectrum of malignancies, but an association with pituitary tumors has not been definitively established. We performed germline sequencing on 20 patients with aggressive pituitary tumors. Pathogenic/likely pathog...",
+        "date": "14/11/2026",
+        "link": "https://doi.org/10.1093/ejendo/lvag206",
+        "pub_types": [
+          "Journal Article"
+        ],
+        "journal": "EJE",
+        "journal_full": "European Journal of Endocrinology",
+        "color": "#2874a6"
+      },
+      {
+        "pmid": "43033453",
+        "title": "Reply to \"Interpreting cardiovascular morbidity after acromegaly diagnosis\".",
+        "authors": "Partanen A, Peltola E, Huhtala H et al.",
+        "abstract": "",
+        "date": "14/11/2026",
+        "link": "https://doi.org/10.1093/ejendo/lvag201",
+        "pub_types": [
+          "Journal Article"
+        ],
+        "journal": "EJE",
+        "journal_full": "European Journal of Endocrinology",
+        "color": "#2874a6"
+      },
+      {
+        "pmid": "43021691",
+        "title": "Should romosozumab be used in patients with a history or risk of CVD?",
+        "authors": "Liu H, Liu L, Rosen CJ",
+        "abstract": "Romosozumab offers substantial fracture protection, but its use in patients with cardiovascular disease or risk factors for cardiovascular disease remains uncertain. Randomized trials have yielded conflicting cardiovascular findings, and meta-analyses have not definitively excluded clinically rel...",
+        "date": "13/11/2026",
+        "link": "https://doi.org/10.1093/ejendo/lvag202",
+        "pub_types": [
+          "Journal Article"
+        ],
+        "journal": "EJE",
+        "journal_full": "European Journal of Endocrinology",
+        "color": "#2874a6"
+      },
+      {
+        "pmid": "43021639",
+        "title": "Correction to: Machine learning quantifies within-subject facial change in acromegaly.",
+        "authors": "",
+        "abstract": "",
+        "date": "13/11/2026",
+        "link": "https://doi.org/10.1093/ejendo/lvag199",
+        "pub_types": [
+          "Published Erratum"
+        ],
+        "journal": "EJE",
+        "journal_full": "European Journal of Endocrinology",
+        "color": "#2874a6"
+      },
+      {
+        "pmid": "42977721",
+        "title": "Genetic Correlates of Malignant Behavior in Aggressive Pituitary Tumors.",
+        "authors": "Theodorou A, Benhamida J, Alano T et al.",
+        "abstract": "Aggressive pituitary neuroendocrine tumors (PitNETs) that progress despite surgery, radiotherapy (RT), and medical therapy are heterogenous; only a subset exhibits overtly malignant behavior. We examined genetic determinants of metastatic behavior and poor prognosis. Retrospective genomic cohort ...",
+        "date": "04/11/2026",
+        "link": "https://doi.org/10.1093/ejendo/lvag196",
+        "pub_types": [
+          "Journal Article"
+        ],
+        "journal": "EJE",
+        "journal_full": "European Journal of Endocrinology",
+        "color": "#2874a6"
+      },
+      {
+        "pmid": "42970573",
+        "title": "Sickness absence in primary aldosteronism and references: a longitudinal cohort study.",
+        "authors": "Ragnarsson O, Bore A, Alexanderson K",
+        "abstract": "Primary aldosteronism (PA) is a common cause of hypertension and is associated with increased cardiovascular morbidity. However, its impact on work capacity remains unknown. We investigated sickness absence and disability pension among patients with PA and in matched reference groups with and wit...",
+        "date": "12/11/2026",
+        "link": "https://doi.org/10.1093/ejendo/lvag198",
+        "pub_types": [
+          "Journal Article"
+        ],
+        "journal": "EJE",
+        "journal_full": "European Journal of Endocrinology",
+        "color": "#2874a6"
+      },
+      {
+        "pmid": "42876378",
+        "title": "When to stop monitoring pituitary stalk thickening?",
+        "authors": "Yadav P, Salvatori R",
+        "abstract": "Pituitary stalk thickening (PST) in adults may arise from neoplastic, inflammatory, infectious, or congenital disease, yet the underlying cause frequently remains undetermined after initial evaluation. For patients without an established diagnosis, no adult-specific data define how long magnetic ...",
+        "date": "13/11/2026",
+        "link": "https://doi.org/10.1093/ejendo/lvag195",
+        "pub_types": [
+          "Journal Article",
+          "Review"
+        ],
+        "journal": "EJE",
+        "journal_full": "European Journal of Endocrinology",
+        "color": "#2874a6"
+      }
+    ]
+  },
+  "Lancet D&E": {
+    "name": "The Lancet Diabetes & Endocrinology",
+    "short": "Lancet D&E",
+    "color": "#d35400",
+    "articles": [
+      {
+        "pmid": "43033822",
+        "title": "The right dose, not the highest dose: rethinking obesity pharmacotherapy.",
+        "authors": "Halpern B",
+        "abstract": "",
+        "date": "14/11/2026",
+        "link": "https://doi.org/10.1016/S2213-8587(26)00286-X",
+        "pub_types": [
+          "Journal Article"
+        ],
+        "journal": "Lancet D&E",
+        "journal_full": "The Lancet Diabetes & Endocrinology",
+        "color": "#d35400"
+      },
+      {
+        "pmid": "43033821",
+        "title": "Efficacy and safety of co-administered cagrilintide-semaglutide (CagriSema) 1·7 mg each and 1·0 mg each in adults with overweight or obesity (REDEFINE 9): a multicentre, randomised, double-blind within-dose-level, placebo-controlled, parallel-group, phase 3b trial.",
+        "authors": "Wharton S, Broholm C, Horn D et al.",
+        "abstract": "Cagrilintide-semaglutide (CagriSema) 2·4 mg each has shown clinically meaningful bodyweight reductions in global phase 3 studies. Different dosing options might support individual treatment responses and tolerability. We aimed to investigate the efficacy and safety of once per week subcutaneous c...",
+        "date": "14/11/2026",
+        "link": "https://doi.org/10.1016/S2213-8587(26)00275-5",
+        "pub_types": [
+          "Journal Article"
+        ],
+        "journal": "Lancet D&E",
+        "journal_full": "The Lancet Diabetes & Endocrinology",
+        "color": "#d35400"
+      },
+      {
+        "pmid": "43025431",
+        "title": "Diagnosing diabetes: the earlier the better.",
+        "authors": "The Lancet Diabetes Endocrinology",
+        "abstract": "",
+        "date": "13/11/2026",
+        "link": "https://doi.org/10.1016/S2213-8587(26)00277-9",
+        "pub_types": [
+          "Editorial"
+        ],
+        "journal": "Lancet D&E",
+        "journal_full": "The Lancet Diabetes & Endocrinology",
+        "color": "#d35400"
+      },
+      {
+        "pmid": "42976894",
+        "title": "Presentation, management, and outcomes of ectopic Cushing syndrome: an international, multicentre, retrospective, cohort study.",
+        "authors": "Chacko SR, Peersen AF, Kaplan JM et al.",
+        "abstract": "Ectopic Cushing syndrome is a rare condition with scarce outcome data. We sought to characterise its course and determinants of complications and mortality. In this international, multicentre, retrospective, cohort study, 49 high-volume endocrine referral centres across Asia, Europe, North Americ...",
+        "date": "03/11/2026",
+        "link": "https://doi.org/10.1016/S2213-8587(26)00237-8",
+        "pub_types": [
+          "Journal Article"
+        ],
+        "journal": "Lancet D&E",
+        "journal_full": "The Lancet Diabetes & Endocrinology",
+        "color": "#d35400"
+      }
+    ]
+  },
+  "Nat Rev Endocrinol": {
+    "name": "Nature Reviews Endocrinology",
+    "short": "Nat Rev Endocrinol",
+    "color": "#8e44ad",
+    "articles": [
+      {
+        "pmid": "43020903",
+        "title": "Gestational diabetes mellitus and risk of long-term cardiometabolic disease.",
+        "authors": "Shen Y, Perng W, Dabelea D et al.",
+        "abstract": "Gestational diabetes mellitus (GDM), or hyperglycaemia first diagnosed during pregnancy, is associated with adverse outcomes for the mother and offspring. In this narrative review, we first summarize the epidemiological evidence regarding long-term maternal and offspring cardiometabolic consequen...",
+        "date": "12/11/2026",
+        "link": "https://doi.org/10.1038/s41574-026-01327-9",
+        "pub_types": [
+          "Journal Article",
+          "Review"
+        ],
+        "journal": "Nat Rev Endocrinol",
+        "journal_full": "Nature Reviews Endocrinology",
+        "color": "#8e44ad"
+      },
+      {
+        "pmid": "43015414",
+        "title": "Screening for early-stage type 1 diabetes mellitus.",
+        "authors": "Martens PJ, Vercauteren J, Ziegler AG et al.",
+        "abstract": "Type 1 diabetes mellitus (T1DM) is now recognized as an autoimmune disease that evolves through distinct presymptomatic stages, often for years before the onset of hyperglycaemia and the need for insulin therapy. This presymptomatic period creates opportunities for early detection, with the prese...",
+        "date": "11/11/2026",
+        "link": "https://doi.org/10.1038/s41574-026-01323-z",
+        "pub_types": [
+          "Journal Article",
+          "Review"
+        ],
+        "journal": "Nat Rev Endocrinol",
+        "journal_full": "Nature Reviews Endocrinology",
+        "color": "#8e44ad"
+      },
+      {
+        "pmid": "43009572",
+        "title": "Neonatal thyroid hormone signalling programmes lifelong transcriptional competence.",
+        "authors": "Sagliocchi S",
+        "abstract": "",
+        "date": "10/11/2026",
+        "link": "https://doi.org/10.1038/s41574-026-01326-w",
+        "pub_types": [
+          "Journal Article"
+        ],
+        "journal": "Nat Rev Endocrinol",
+        "journal_full": "Nature Reviews Endocrinology",
+        "color": "#8e44ad"
+      },
+      {
+        "pmid": "43009571",
+        "title": "Keeping mothers cool: the evolving role of pregnancy hormones in thermoregulation.",
+        "authors": "Stewart AM",
+        "abstract": "",
+        "date": "10/11/2026",
+        "link": "https://doi.org/10.1038/s41574-026-01330-0",
+        "pub_types": [
+          "Journal Article"
+        ],
+        "journal": "Nat Rev Endocrinol",
+        "journal_full": "Nature Reviews Endocrinology",
+        "color": "#8e44ad"
+      },
+      {
+        "pmid": "43009570",
+        "title": "CD81 defines a new paradigm for beige adipocyte progenitor biology.",
+        "authors": "Dadashizadeh G",
+        "abstract": "",
+        "date": "10/11/2026",
+        "link": "https://doi.org/10.1038/s41574-026-01332-y",
+        "pub_types": [
+          "Journal Article"
+        ],
+        "journal": "Nat Rev Endocrinol",
+        "journal_full": "Nature Reviews Endocrinology",
+        "color": "#8e44ad"
+      },
+      {
+        "pmid": "43003909",
+        "title": "Hypothalamic astrocytes fine-tune the signals governing metabolism.",
+        "authors": "Chowen JA, Tena-Sempere M, Frago LM et al.",
+        "abstract": "Astrocytes are known to have key roles in the neuroendocrine control of metabolism. The spectrum of actions of this cell population continues to expand as their heterogeneity is deciphered and new study approaches are employed. Astrocytes were first implicated in metabolic control when they were ...",
+        "date": "09/11/2026",
+        "link": "https://doi.org/10.1038/s41574-026-01318-w",
+        "pub_types": [
+          "Journal Article",
+          "Review"
+        ],
+        "journal": "Nat Rev Endocrinol",
+        "journal_full": "Nature Reviews Endocrinology",
+        "color": "#8e44ad"
+      },
+      {
+        "pmid": "43003908",
+        "title": "A DiRECT route to type 2 diabetes mellitus remission.",
+        "authors": "Nguyen NT, Jain U",
+        "abstract": "",
+        "date": "09/11/2026",
+        "link": "https://doi.org/10.1038/s41574-026-01334-w",
+        "pub_types": [
+          "Journal Article"
+        ],
+        "journal": "Nat Rev Endocrinol",
+        "journal_full": "Nature Reviews Endocrinology",
+        "color": "#8e44ad"
+      },
+      {
+        "pmid": "42988888",
+        "title": "Understanding and targeting diabetic wound healing.",
+        "authors": "Greenhill C",
+        "abstract": "",
+        "date": "05/11/2026",
+        "link": "https://doi.org/10.1038/s41574-026-01329-7",
+        "pub_types": [
+          "Journal Article"
+        ],
+        "journal": "Nat Rev Endocrinol",
+        "journal_full": "Nature Reviews Endocrinology",
+        "color": "#8e44ad"
+      },
+      {
+        "pmid": "42988887",
+        "title": "Neuropeptide expression determines neuroendocrine cell identity in the hypothalamus.",
+        "authors": "Hevesi Z",
+        "abstract": "",
+        "date": "05/11/2026",
+        "link": "https://doi.org/10.1038/s41574-026-01328-8",
+        "pub_types": [
+          "Journal Article"
+        ],
+        "journal": "Nat Rev Endocrinol",
+        "journal_full": "Nature Reviews Endocrinology",
+        "color": "#8e44ad"
+      },
+      {
+        "pmid": "42977773",
+        "title": "Cardiovascular disease in diabetes mellitus: beyond atherosclerosis and heart failure.",
+        "authors": "Gong JY, Fourlanos S, Butler J et al.",
+        "abstract": "The global burden of diabetes mellitus continues to grow, now affecting one in nine adults. In people with diabetes mellitus, cardiovascular disease is a leading cause of morbidity and mortality, and considerable focus has been placed on reducing the incidence of atherosclerotic cardiovascular di...",
+        "date": "03/11/2026",
+        "link": "https://doi.org/10.1038/s41574-026-01315-z",
+        "pub_types": [
+          "Journal Article",
+          "Review"
+        ],
+        "journal": "Nat Rev Endocrinol",
+        "journal_full": "Nature Reviews Endocrinology",
+        "color": "#8e44ad"
+      }
+    ]
+  }
+}
